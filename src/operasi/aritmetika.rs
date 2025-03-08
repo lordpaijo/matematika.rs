@@ -17,6 +17,14 @@ pub fn pangkat<T>(base: T, exp: u32) -> T  where T: Mul<Output = T> + Copy + One
     hasil
 }
 
+pub fn akar_kuadrat(x: f64) -> f64 
+{
+    if x < 0.0 { panic!("Akar kuadrat dari bilangan negatif tidak terdefinisi untuk f64."); }
+    let mut z = x;
+    for _ in 0..10 { z = (z + x / z) / 2.0; }
+    z
+}
+
 pub fn tambah <T: Add<Output = T>>(a: T, b: T) -> T { a + b }
 pub fn kurang <T: Sub<Output = T>>(a: T, b: T) -> T { a - b }
 pub fn kali   <T: Mul<Output = T>>(a: T, b: T) -> T { a * b }
