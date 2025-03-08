@@ -2,25 +2,12 @@ use std::ops::*;
 
 /* Normal (hanya dua angka) */
 
-pub trait One {
-    fn one() -> Self;
-}
+pub trait One { fn one() -> Self; }
 
-impl One for i32 {
-    fn one() -> Self { 1 }
-}
-
-impl One for i64 {
-    fn one() -> Self { 1 }
-}
-
-impl One for f32 {
-    fn one() -> Self { 1.0 }
-}
-
-impl One for f64 {
-    fn one() -> Self { 1.0 }
-}
+impl One for i32 { fn one() -> Self { 1 } }
+impl One for i64 { fn one() -> Self { 1 } }
+impl One for f32 { fn one() -> Self { 1.0 } }
+impl One for f64 { fn one() -> Self { 1.0 } }
 
 // Jika exp == 0, maka akan mengembalikan nilai identitas (1).
 pub fn pangkat<T>(base: T, exp: u32) -> T  where T: Mul<Output = T> + Copy + One,
