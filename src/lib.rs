@@ -11,5 +11,7 @@ mod tests {
     #[test]
     fn it_works() {
         let result = tambah(6.5, 6.0);
+        let angka = [2,3,4,5];
+        let super_result = super_tambah(&angka);
     }
 }
