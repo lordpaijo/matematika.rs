@@ -39,8 +39,31 @@ pub fn genap (mode: &str, mut a: i64) -> i64
     a
 }
 
+pub fn ganjil (mode: &str, mut a: i64) -> i64 
+{
+    match mode
+    {
+        "cek" => { 
+            if a % 2 != 0 { 
+                println!("{} adalah bilangan ganjil.", a); 
+            } else { 
+                println!("{} bukanlah bilangan ganjil.", a); 
+            }
+        }
+        "rubah" => {
+            if a % 2 == 0 { 
+                a += 1;
+                println!("{}", a);
+            } else { 
+                println!("{} sudah ganjil.", a);
+            }
+        }
+        &_ => panic!("{} bukanlah sebuah mode!", mode),
+    }
+    a
+}
 
-pub fn super_genap(mode: &str, a: &mut [i64]) 
+pub fn super_genap (mode: &str, a: &mut [i64]) 
 {
     match mode 
     {
@@ -68,3 +91,30 @@ pub fn super_genap(mode: &str, a: &mut [i64])
     }
 }
 
+pub fn super_ganjil (mode: &str, a: &mut [i64]) 
+{
+    match mode 
+    {
+        "cek" => {
+            for &num in a.iter() {
+                if num % 2 != 0 {
+                    println!("{} adalah bilangan ganjil.", num);
+                } else {
+                    println!("{} bukanlah bilangan ganjil.", num);
+                }
+            }
+        }
+        "rubah" => {
+            for num in a.iter_mut() {
+                if *num % 2 == 0 {
+                    let temp = *num;
+                    *num += 1;
+                    println!("{} telah diganjilkan menjadi: {}.", temp, *num);
+                } else {
+                    println!("{} sudah ganjil.", *num);
+                }
+            }
+        }
+        _ => panic!("{} bukanlah sebuah mode!", mode),
+    }
+}
