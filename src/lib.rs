@@ -26,8 +26,9 @@ mod tests {
         let _hasil_kpk = kpk(12, 18);
         let _hasil_fpb = fpb(12, 18);
         let _sigma = bulat(4.65);
+        genap("cek", 64);
         let _kena_akar = akar_kuadrat(10.00);
         let _faklah = faktorial(5);
-        let dadu = kombinasi(6, 2);
+        let _dadu = kombinasi(6, 2);
     }
 }
