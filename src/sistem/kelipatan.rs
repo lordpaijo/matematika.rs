@@ -4,6 +4,8 @@ pub trait Zero { fn zero() -> Self; }
 
 impl Zero for u32 { fn zero() -> Self { 0 } }
 impl Zero for i32 { fn zero() -> Self { 0 } }
+impl Zero for u64 { fn zero() -> Self { 0 } }
+impl Zero for i64 { fn zero() -> Self { 0 } }
 
 pub fn fpb<T>(mut a: T, mut b: T) -> T where T: Copy + PartialEq + Rem<Output = T> + Zero,
 { 
