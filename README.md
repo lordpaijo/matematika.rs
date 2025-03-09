@@ -1,6 +1,6 @@
 # matematika.rs
 
-Sebuah crates / library matematika dasar untuk bahasa pemerograman rust yang ada karena developernya gabut, nolep, dan tidak berwibawa.
+Sebuah crates / library matematika dasar user-friendly untuk bahasa pemerograman rust yang ada karena developernya gabut, nolep, dan tidak berwibawa.
 
 ## Installasi
 
@@ -69,3 +69,40 @@ fn main ()
     bilangan::ganjil("rubah", kelipatan::fpb(z, y));
 }
 ```
+
+output:
+```sh
+56 adalah bilangan genap.
+1 sudah ganjil.
+```
+
+Contoh 3 (basis bilangan dan operasi aritmetika) :
+```rust
+use matematika-rs::operasi::aritmetika;
+use matematika-rs::sistem::basis;
+
+fn main ()
+{
+    let x: u64 = 680; let y: u64 = 87;
+    println!("{}\n{}\n{}\n{}",
+        basis::konversi_basis(aritmetika::tambah(x ,y), 2),
+        basis::desimal_ke_biner(aritmetika::kali(x, y)),
+        basis::biner_ke_hexadesimal(
+           &basis::desimal_ke_biner(aritmetika::kurang(x, y)) 
+        ),
+        basis::hexadesimal_ke_oktal(
+            &basis::desimal_ke_hexadesimal(aritmetika::bagi(x, y))
+        )
+    ); 
+}
+```
+
+output:
+```sh
+1011111111
+1110011100011000
+251
+7
+```
+
+Masih under construction, jadi harap panik kalau banyak bug karena yang make library atau crate atau apapun ini udah pasti jadi kelinci percobaanku (itung-itung kalian dapet bagian kontribusi lah). Selemat mencoba........
