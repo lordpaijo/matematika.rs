@@ -30,14 +30,14 @@ fn main ()
 Untuk mengakses methods atau... apapun itulah, bisa dengan memanggil library diikuti dengan parent methods-nya.
 
 ```rust
-use matematika-rs::operasi::aritmetika; // disini parentnya adalah operasi::aritmetika;
+use matematika_rs::operasi::aritmetika; // disini parentnya adalah operasi::aritmetika;
 ```
 
 Baru deh kamu bisa memanggil method yang kamu pingin.
 
 Contoh 1 (method aritmetika dasar) :
 ```rust
-use matematika-rs::operasi::aritmetika;
+use matematika_rs::operasi::aritmetika;
 
 fn main () 
 {
@@ -58,8 +58,8 @@ output:
 
 Contoh 2 (method pembulatan, ganjil / genap, dan KPK & FPB) :
 ```rust
-use matematika-rs::sistem::bilangan;
-use matematika-rs::sistem::kelipatan;
+use matematika_rs::sistem::bilangan;
+use matematika_rs::sistem::kelipatan;
 
 fn main () 
 {
@@ -78,8 +78,8 @@ output:
 
 Contoh 3 (basis bilangan dan operasi aritmetika) :
 ```rust
-use matematika-rs::operasi::aritmetika;
-use matematika-rs::sistem::basis;
+use matematika_rs::operasi::aritmetika;
+use matematika_rs::sistem::basis;
 
 fn main ()
 {
