@@ -19,7 +19,7 @@ matematika-rs = "<Versi Crates>"
 Layaknya crates / library rust pada umunya, pemakaian dimulai dari pemanggilan `matematika-rs`.
 
 ```rust
-use matematika-rs;
+use matematika_rs;
 
 fn main () 
 {
