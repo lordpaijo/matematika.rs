@@ -43,9 +43,8 @@ fn main ()
 {
     let x = 100; let y = 5;
     let z = [5, 6, 8, 125];
-    let hasil = aritmetika::tambah(
-                aritmetika::tambah(aritmetika::tambah(x, y), 
-                                    aritmetika::kali(x, y)), 
+    let hasil = aritmetika::tambah(aritmetika::tambah(
+                aritmetika::tambah(x, y), aritmetika::kali(x, y)), 
                 aritmetika::super_kurang(&z));
     
     println!("{}", hasil);
