@@ -17,25 +17,20 @@ impl Aljabar
     // a1x + b1y = c1
     // a2x + b2y = c2
     //
-    pub fn spldv(
-        a1: f64, b1: f64, c1: f64, a2: f64, b2: f64, c2: f64) 
-        -> Option<(f64, f64)> 
-    {
-        if a1 == 0.0 || b1 == 0.0 || a2 == 0.0 || b2 == 0.0 { return None; }
-        
-        // Eliminasi x
-        let new_a1 = a1 * b2;
-        let new_c1 = c1 * b2;
-        let new_a2 = a2 * b1;
-        let new_c2 = c2 * b1;
-        
-        // Menghitung y
-        let y = (new_c2 - new_c1) / (new_a2 - new_a1);
-        // Menghitung x
-        let x = (c1 - (b1 * y)) / a1;
-        
-        Some((x, y))
-    }
+    pub fn spldv (
+    a1: f64, b1: f64, c1: f64,
+    a2: f64, b2: f64, c2: f64 ) -> Option<(f64, f64)> {
+    
+    let det = a1 * b2 - a2 * b1;
+    if det == 0.0 { return None; }
+
+    // Hitung nilai y
+    let y = (a1 * c2 - a2 * c1) / det;
+    // Hitung nilai x
+    let x = (c1 - b1 * y) / a1;
+
+    Some((x, y))
+}
     
     // 
     // Sistem Persamaan Linear Tiga Variable
