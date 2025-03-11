@@ -40,7 +40,7 @@ Module-module `matematika-rs` dikelompokkan menjadi dua, yaitu [operasi](#Operas
 ### Aritmetika 
 Module ini adalah module yang berisikan operasi aritmetika dasar.
 
-Method-method di module ini ada dua macam, yaitu [normal](#Normal) antara lain:
+Method-method di module ini ada dua macam, yaitu [normal](#Normal) dan [super](#Super).
 
 | Normal | Super |
 |--------|-------|
