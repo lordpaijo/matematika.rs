@@ -162,7 +162,8 @@ Dan penyelesaiannya adalah dengan rumus seperti ini:
 
 *y = (a1 . ​b2 ​− a2​ . b1)​ / (a1​ . c2​ − a2 . ​c1)*        *kali silang.*  
 
-Dan jika determinannya nol (yes pake determinan, komputer lebih anteng kalo gini), maka tidak membuahkan hasil.
+dan jika determinannya nol (yes, pake determinan, komputer lebih anteng kalo gini), maka tidak membuahkan hasil.
+
 
 Maka penggunaan method `Aljabar::spldv()` adalah sebagai berikut:
 
@@ -171,8 +172,18 @@ use matematika_rs::sistem::aljabar::*;
 
 fn main ()
 {
-                            // a1   b1   c1   a2    b2   c2
-    let hasil = Aljabar::spldv(2.0, 3.0, 5.0, 4.0, -1.0, 1.0);
-    println!("{:?}", hasil);
+    //                         a1   b1   c1    a2    b2   c2
+    let hasil = Aljabar::spldv(3.0, 2.0, 12.0, 5.0, -1.0, 4.0);
+    
+    match hasil {
+        Some((x, y)) => println!("x = {}, y = {}", x, y),
+        None => println!("Tidak ada solusi"),
+        //
+        // Hasil ekspektasi -> x = 1.538, y = 3.692 (Iya, ekspektasi, komputernya sering ngambek jadi cuma bisa berekspektasi.)
+        //
+    }
 }
 ```
+
+## Penutup
+Cukup sekian dulu, malas nulis dan besok ada ujian.
