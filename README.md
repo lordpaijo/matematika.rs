@@ -56,24 +56,25 @@ output:
 471
 ```
 
-Contoh 2 (method pembulatan, ganjil / genap, dan KPK & FPB) :
+Contoh 2 (method aljabar: sistem persamaan linear) :
 ```rust
-use matematika_rs::sistem::bilangan;
-use matematika_rs::sistem::kelipatan;
+use matematika_rs::sistem::aljabar::*;
 
 fn main () 
 {
-    let x = 6.7487; let y: i64 = 8;
-    let z: i64 = bilangan::bulat(x) as i64;
-    bilangan::genap("cek", kelipatan::kpk(z, y));
-    bilangan::ganjil("rubah", kelipatan::fpb(z, y));
+    let a = 6.0; let b = 12.0;
+    let x = Aljabar::splsv(a, b);
+    let a1 = 3.0; let b1 = 2.0; let c1 = 12.0;
+    let a2 = 5.0; let b2 = -1.0; let c2 = 4.0;
+    let hasil = Aljabar::spldv(a1, b1, c1, a2, b2 , c2);
+    println1("{}\n{:?}", x, hasil.unwrap());
 }
 ```
 
 output:
 ```sh
-56 adalah bilangan genap.
-1 sudah ganjil.
+(-2.0)
+(1.5384615384615383, 3.6923076923076925)
 ```
 
 Contoh 3 (basis bilangan dan operasi aritmetika) :
