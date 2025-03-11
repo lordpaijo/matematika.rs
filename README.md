@@ -84,16 +84,13 @@ use matematika_rs::sistem::basis;
 fn main ()
 {
     let x: u64 = 680; let y: u64 = 87;
-    println!("{}\n{}\n{}\n{}",
-        basis::konversi_basis(aritmetika::tambah(x ,y), 2),
-        basis::desimal_ke_biner(aritmetika::kali(x, y)),
-        basis::biner_ke_hexadesimal(
-           &basis::desimal_ke_biner(aritmetika::kurang(x, y)) 
-        ),
-        basis::hexadesimal_ke_oktal(
-            &basis::desimal_ke_hexadesimal(aritmetika::bagi(x, y))
-        )
-    ); 
+    let a = basis::konversi_basis(aritmetika::tambah(x ,y), 2);
+    let b = basis::desimal_ke_biner(aritmetika::kali(x, y));
+    let c = basis::biner_ke_hexadesimal(
+            &basis::desimal_ke_biner(aritmetika::kurang(x, y)));
+    let d = basis::hexadesimal_ke_oktal(
+            &basis::desimal_ke_hexadesimal(aritmetika::bagi(x, y));
+    println!("{}\n{}\n{}\n{}", a, b, c, d); 
 }
 ```
 
