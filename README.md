@@ -46,7 +46,6 @@ fn main ()
     let hasil = aritmetika::tambah(aritmetika::tambah(
                 aritmetika::tambah(x, y), aritmetika::kali(x, y)), 
                 aritmetika::super_kurang(&z));
-    
     println!("{}", hasil);
 }
 ```
@@ -63,9 +62,12 @@ fn main ()
 {
     let a = 6.0; let b = 12.0;
     let x = Aljabar::splsv(a, b);
-    let a1 = 3.0; let b1 = 2.0; let c1 = 12.0;
-    let a2 = 5.0; let b2 = -1.0; let c2 = 4.0;
-    let hasil = Aljabar::spldv(a1, b1, c1, a2, b2 , c2);
+    let a1 = 4.0; let b1 = -3.0; let c1 = 18.0;
+    let a2 = 3.0; let b2 = 1.0; let c2 = 7.0;
+    let hasil = Aljabar::spldv(
+        a1, b1, c1,
+        a2, b2, c2
+    );
     println1("{}\n{:?}", x, hasil.unwrap());
 }
 ```
@@ -73,7 +75,7 @@ fn main ()
 output:
 ```sh
 (-2.0)
-(1.5384615384615383, 3.6923076923076925)
+(3.0, -2.0)
 ```
 
 Contoh 3 (basis bilangan dan operasi aritmetika) :
