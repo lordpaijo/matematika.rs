@@ -146,24 +146,22 @@ Sintaks:
 struct Aljabar;
 
 Aljabar::splsv(
-    a1: f64, b1: f64, c1: f64, a2: f64, b2: f64, c2: f64) -> Option<f64, f64>
+    a1: f64, b1: f64, c1: f64,
+    a2: f64, b2: f64, c2: f64) -> Option<f64, f64>
         -> Some(x, y)
 ```
 
 Misalkan kita punya permasalahan seperti ini:
 
-*a1​x + b1​y = c1*​
+*a1​x - b1​y = c1*​
 
 *a2x + b2y = c2*
 
-Dan penyelesaiannya adalah dengan rumus seperti ini:
+Dan penyelesaiannya adalah dengan cara mengeliminasi *x* seperti ini:
 
-*x = (a1 . ​b2 ​− a2 . ​b1) / ​(c1 . ​b2 ​− c2 . ​b1)​​*        *Gampangannya kita*
+*{ a1x - b1y = c1 } . a2*
 
-*y = (a1 . ​b2 ​− a2​ . b1)​ / (a1​ . c2​ − a2 . ​c1)*        *kali silang.*  
-
-dan jika determinannya nol (yes, pake determinan, komputer lebih anteng kalo gini), maka tidak membuahkan hasil.
-
+*{ a2x + b2y = c2 } . a1*
 
 Maka penggunaan method `Aljabar::spldv()` adalah sebagai berikut:
 
@@ -172,18 +170,20 @@ use matematika_rs::sistem::aljabar::*;
 
 fn main ()
 {
-    //                         a1   b1   c1    a2    b2   c2
-    let hasil = Aljabar::spldv(3.0, 2.0, 12.0, 5.0, -1.0, 4.0);
-    
-    match hasil {
-        Some((x, y)) => println!("x = {}, y = {}", x, y),
-        None => println!("Tidak ada solusi"),
-        //
-        // Hasil ekspektasi -> x = 1.538, y = 3.692 (Iya, ekspektasi, komputernya sering ngambek jadi cuma bisa berekspektasi.)
-        //
-    }
-}
+    let hasil = Aljabar::spldv(
+        4.0, -3.0, 18.0,  //  a1x - b1y = c1 
+        3.0, 1.0, 7.0     //  a2x + b2y = c2
+    );
+
+    println!("{:?}", hasil.unwrap());
 ```
+
+Dan outputnya adalah:
+```sh
+(3.0, -2.0)
+```
+
+Untuk penjabaran legnkap dari apa yang dilakukan oleh method `Aljabar::spldv()`, bisa lihat di kode [aljabar.rs](https://github.com/lordpaijo/matematika.rs/blob/master/src/sistem/aljabar.rs) karena disitu aku sudah menulis penjelasan tentang apa yang sebenarnya dilakukan oleh method-method dari module [`aljabar`](https://github.com/lordpaijo/matematika.rs/blob/master/src/sistem/aljabar.rs).
 
 ## Penutup
 Cukup sekian dulu, malas nulis dan besok ada ujian.
