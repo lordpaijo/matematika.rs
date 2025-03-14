@@ -133,7 +133,7 @@ fn main() {
 }
 ```
 
-Untuk penjelasan lebih lanjut tentang implementasinya, silakan merujuk pada [aljabar.rs](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/Aljabar.md). 
+Untuk penjelasan lebih lanjut tentang implementasinya, silakan merujuk pada [aljabar.md](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/Aljabar.md). 
 
 ---
 
