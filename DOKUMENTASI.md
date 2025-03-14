@@ -133,7 +133,35 @@ fn main() {
 }
 ```
 
-Untuk penjelasan lebih lanjut tentang implementasinya, silakan merujuk pada [aljabar.md](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/Aljabar.md). 
+### Konversi Basis
+Modul ini menyediakan fungsi untuk mengonversi angka antara berbagai basis.
+
+#### Fungsi Umum
+```rust
+pub fn konversi_basis(num: u64, base: u32) -> String;
+pub fn parse_number(num_str: &str, from_base: u32) -> u64;
+```
+
+#### Konversi Antar Basis
+```rust
+pub fn desimal_ke_biner(num: u64) -> String;
+pub fn desimal_ke_oktal(num: u64) -> String;
+pub fn desimal_ke_hexadesimal(num: u64) -> String;
+
+pub fn biner_ke_desimal(num_str: &str) -> u64;
+pub fn biner_ke_oktal(num_str: &str) -> String;
+pub fn biner_ke_hexadesimal(num_str: &str) -> String;
+
+pub fn hexadesimal_ke_desimal(num_str: &str) -> u64;
+pub fn hexadesimal_ke_biner(num_str: &str) -> String;
+pub fn hexadesimal_ke_oktal(num_str: &str) -> String;
+
+pub fn oktal_ke_desimal(num_str: &str) -> u64;
+pub fn oktal_ke_biner(num_str: &str) -> String;
+pub fn oktal_ke_hexadesimal(num_str: &str) -> String;
+```
+
+Untuk detail lebih lanjut, silakan merujuk pada [dokumentasi lengkap.](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/).
 
 ---
 
