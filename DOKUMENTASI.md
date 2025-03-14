@@ -135,6 +135,48 @@ fn main() {
 }
 ```
 
+### Faktor Persekutuan Terbesar (FPB) & Kelipatan Persekutuan Terkecil (KPK)
+Modul ini menyediakan fungsi untuk mencari FPB dan KPK dari dua bilangan.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `fpb(a, b)` | `a: T, b: T` | `T` | Menghitung faktor persekutuan terbesar dari `a` dan `b` |
+| `kpk(a, b)` | `a: T, b: T` | `T` | Menghitung kelipatan persekutuan terkecil dari `a` dan `b` |
+
+```rust
+use matematika_rs::sistem::*;
+
+fn main() {
+    let a = 36;
+    let b = 48;
+    println!("FPB: {}", fpb(a, b)); // Output: 12
+    println!("KPK: {}", kpk(a, b)); // Output: 144
+}
+```
+
+### Deret Fibonacci
+Modul ini menyediakan metode untuk menghitung deret Fibonacci dengan berbagai pendekatan.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `rekursif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan rekursi |
+| `iteratif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan iterasi |
+| `binet(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` menggunakan rumus Binet |
+| `adalah_genap(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah genap |
+| `adalah_prima(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah bilangan prima |
+
+Contoh penggunaan:
+
+```rust
+use matematika_rs::sistem::fibonacci::*;
+
+fn main() {
+    println!("Fibonacci ke-10: {}", Fibonacci::iteratif(10));
+    println!("Apakah Fibonacci ke-10 genap? {}", Fibonacci::adalah_genap(10));
+    println!("Apakah Fibonacci ke-10 prima? {}", Fibonacci::adalah_prima(10));
+}
+```
+
 ### Aljabar
 Modul **Aljabar** berisi metode untuk menyelesaikan sistem persamaan linear.
 
