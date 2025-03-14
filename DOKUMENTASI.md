@@ -161,7 +161,7 @@ pub fn oktal_ke_biner(num_str: &str) -> String;
 pub fn oktal_ke_hexadesimal(num_str: &str) -> String;
 ```
 
-Untuk detail lebih lanjut, silakan merujuk pada [dokumentasi lengkap.](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/).
+Untuk detail lebih lanjut, silakan merujuk pada [dokumentasi lengkap](https://github.com/lordpaijo/matematika.rs/blob/master/dokumentasi/).
 
 ---
 
