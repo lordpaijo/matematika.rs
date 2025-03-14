@@ -96,6 +96,45 @@ fn main() {
 ---
 
 ## Sistem
+### Pembulatan dan Bilangan Ganjil-Genap
+Modul ini menyediakan fungsi untuk melakukan pembulatan serta pengecekan dan perubahan bilangan ganjil-genap.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `bulat()` | `a: f64` | `f64` | Membulatkan angka ke bilangan bulat terdekat |
+| `genap("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan genap |
+| `genap("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan genap terdekat |
+| `ganjil("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan ganjil |
+| `ganjil("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan ganjil terdekat |
+| `super_genap("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan genap |
+| `super_genap("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan genap |
+| `super_ganjil("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan ganjil |
+| `super_ganjil("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan ganjil |
+
+Contoh penggunaan:
+
+```rust
+use matematika_rs::sistem::*;
+
+fn main() {
+    let angka = 4.7;
+    println!("{}", bulat(angka)); // Output: 5.0
+
+    let mut nilai = 7;
+    println!("{}", genap("rubah", nilai)); // Output: 8
+}
+```
+
+```rust
+use matematika_rs::sistem::*;
+
+fn main() {
+    let mut angka = [3, 6, 9, 12];
+    super_genap("rubah", &mut angka);
+    println!("{:?}", angka); // Output: [4, 6, 10, 12]
+}
+```
+
 ### Aljabar
 Modul **Aljabar** berisi metode untuk menyelesaikan sistem persamaan linear.
 
