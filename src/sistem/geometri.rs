@@ -19,7 +19,7 @@ pub mod bangun_datar
 
         pub fn keliling (&self) -> f64
         {
-            self.sisi * 3.00 
+            self.sisi * 4.00 
         }
     }
     
@@ -83,12 +83,12 @@ pub mod bangun_datar
 
         pub fn luas (&self) -> f64
         {
-            (22.00 / 7.00) * self.r.powf(2.00)
+            std::f64::consts::PI * self.r.powf(2.00)
         }
 
         pub fn keliling (&self) -> f64
         {
-            2.00 * (22.00 / 7.00) * self.r
+            2.00 * std::f64::consts::PI * self.r
         }
     }
 }
@@ -97,14 +97,14 @@ pub mod bangun_ruang
 {
     pub struct Kubus 
     {
-        sisi: f64, panjang: f64,
+        sisi: f64,
     }
 
     impl Kubus 
     {
-        pub fn new (sisi: f64, panjang: f64) -> Self 
+        pub fn new (sisi: f64) -> Self 
         {
-            Self { sisi, panjang }
+            Self { sisi }
         }
 
         pub fn volume (&self) -> f64 
@@ -134,7 +134,7 @@ pub mod bangun_ruang
 
         pub fn keliling (&self) -> f64
         {
-            self.sisi * self.panjang
+            self.sisi * 12.00
         }
     }
     
@@ -200,22 +200,22 @@ pub mod bangun_ruang
 
         pub fn luas_permukaan (&self) -> f64
         {
-            4.00 * (22.00 / 7.00) * self.r.powf(2.00)
+            4.00 * std::f64::consts::PI * self.r.powf(2.00)
         }
 
         pub fn volume (&self) -> f64
         {
-            (4.00 / 3.00) * (22.00 / 7.00) * self.r.powf(3.00)
+            (4.00 / 3.00) * std::f64::consts::PI * self.r.powf(3.00)
         }
 
         pub fn setengah_volume (&self) -> f64
         {
-            (2.00 / 3.00) * (22.00 / 7.00) * self.r
+            (2.00 / 3.00) * std::f64::consts::PI * self.r.powf(3.00)
         }
 
         pub fn keliling (&self) -> f64
         {
-            (4.00 / 3.00) * (22.00 / 7.00) * self.r.powf(2.00)
+            2.00 * std::f64::consts::PI * self.r
         }
     }
 }
