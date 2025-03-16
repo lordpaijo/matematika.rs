@@ -114,6 +114,11 @@ fn main() {
 7
 ```
 
+## Dokumentasi Lengkap
+
+Dokumentasi lengkap pustaka ini dapat diakses melalui tautan berikut:
+[Dokumentasi matematika.rs](https://github.com/lordpaijo/matematika.rs/blob/master/DOKUMENTASI.md).
+
 ## Status Pengembangan
 
 Pustaka ini masih dalam tahap pengembangan aktif, sehingga mungkin terdapat bug atau keterbatasan dalam fungsionalitasnya. Pengguna diharapkan untuk memberikan masukan dan kontribusi guna meningkatkan kualitas pustaka ini.
