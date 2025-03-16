@@ -1,5 +1,7 @@
 pub mod aritmetika;
 pub mod kombinatorika;
 
-pub use aritmetika::*;
-pub use kombinatorika::*;
+
+// #[allow(dead_code)]
+// pub use aritmetika::*;
+// pub use kombinatorika::*;
