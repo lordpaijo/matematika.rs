@@ -69,11 +69,11 @@ use matematika_rs::sistem::aljabar::*;
 fn main() {
     let a = 6.0; 
     let b = 12.0;
-    let x = Aljabar::splsv(a, b);
+    let x = SistemPersamaan::splsv(a, b);
 
     let a1 = 4.0; let b1 = -3.0; let c1 = 18.0;
     let a2 = 3.0; let b2 = 1.0; let c2 = 7.0;
-    let hasil = Aljabar::spldv(a1, b1, c1, a2, b2, c2);
+    let hasil = SistemPersamaan::spldv(a1, b1, c1, a2, b2, c2);
 
     println!("{}\n{:?}", x, hasil.unwrap());
 }
