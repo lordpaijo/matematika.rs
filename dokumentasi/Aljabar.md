@@ -6,9 +6,9 @@ Dokumentasi modul [`aljabar`](https://github.com/lordpaijo/matematika.rs/blob/ma
 #### Sintaks:
 
 ```rust
-struct Aljabar;
+struct SistemPersamaan;
 
-Aljabar::splsv(a: f64, b: f64) -> Option<f64>
+SistemPersamaan::splsv(a: f64, b: f64) -> Option<f64>
         Some(-b / a)
 ```
 
@@ -26,7 +26,7 @@ Implementasi dalam kode:
 use matematika_rs::sistem::aljabar::*;
 
 fn main() {
-    let x = Aljabar::splsv(6.0, 12.0);  // x = -b / a
+    let x = SistemPersamaan::splsv(6.0, 12.0);  // x = -b / a
     println!("{}", x.unwrap());
     // x = -12 / 6 = -2
 }
@@ -56,9 +56,9 @@ fn main() {
 ### Sistem Persamaan Linear Dua Variabel (SPLDV)
 #### Sintaks:
 ```rust
-struct Aljabar;
+struct SistemPersamaan;
 
-Aljabar::spldv(
+SistemPersamaan::spldv(
     a1: f64, b1: f64, c1: f64,
     a2: f64, b2: f64, c2: f64) -> Option<(f64, f64)>
         Some(x, y)
@@ -81,7 +81,7 @@ Implementasi dalam kode:
 use matematika_rs::sistem::aljabar::*;
 
 fn main() {
-    let hasil = Aljabar::spldv(
+    let hasil = SistemPersamaan::spldv(
         4.0, -3.0, 18.0,  //  a₁x - b₁y = c₁
         3.0, 1.0, 7.0     //  a₂x + b₂y = c₂
     );
