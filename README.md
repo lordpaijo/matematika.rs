@@ -1,102 +1,112 @@
 # matematika.rs
 
-Sebuah crates / library matematika dasar user-friendly untuk bahasa pemerograman rust yang ada karena developernya gabut, nolep, dan tidak berwibawa.
+`matematika.rs` adalah sebuah pustaka (crate) Rust yang menyediakan berbagai fungsi matematika dasar dengan antarmuka yang mudah digunakan.
 
-## Installasi
+## Instalasi
 
-Tambahkan ke projek cargo-mu.
+Tambahkan pustaka ini ke dalam proyek Cargo Anda dengan perintah berikut:
+
 ```sh
 cargo add matematika-rs
 ```
 
-Atau masukkan baris berikut kedalam bagian dependencies di Cargo.toml projekmu.
+Atau tambahkan secara manual ke dalam bagian `dependencies` pada file `Cargo.toml`:
+
 ```toml
 matematika-rs = "<Versi Crates>"
 ```
 
 ## Penggunaan
 
-Layaknya crates / library rust pada umunya, pemakaian dimulai dari pemanggilan `matematika-rs`.
+Untuk menggunakan pustaka ini, import terlebih dahulu `matematika-rs` ke dalam kode Anda:
 
 ```rust
 use matematika_rs;
 
-fn main () 
-{
-    /* sebuah baris kode */
+fn main() {
+    // Implementasi kode di sini
 }
 ```
 
-Untuk mengakses methods atau... apapun itulah, bisa dengan memanggil library diikuti dengan parent methods-nya.
+Untuk mengakses metode yang tersedia, panggil pustaka diikuti dengan modul yang bersangkutan:
 
 ```rust
-use matematika_rs::operasi::aritmetika; // disini parentnya adalah operasi::aritmetika;
+use matematika_rs::operasi::aritmetika; // Modul operasi aritmetika
 ```
 
-Baru deh kamu bisa memanggil method yang kamu pingin.
+### Contoh Penggunaan
 
-Contoh 1 (method aritmetika dasar) :
+#### 1. Operasi Aritmetika Dasar
+
 ```rust
 use matematika_rs::operasi::aritmetika;
 
-fn main () 
-{
-    let x = 100; let y = 5;
+fn main() {
+    let x = 100;
+    let y = 5;
     let z = [5, 6, 8, 125];
-    let hasil = aritmetika::tambah(aritmetika::tambah(
-                aritmetika::tambah(x, y), aritmetika::kali(x, y)), 
-                aritmetika::super_kurang(&z));
+    let hasil = aritmetika::tambah(
+        aritmetika::tambah(
+            aritmetika::tambah(x, y),
+            aritmetika::kali(x, y)
+        ),
+        aritmetika::super_kurang(&z)
+    );
     println!("{}", hasil);
 }
 ```
-output:
+
+**Output:**
 ```sh
 471
 ```
 
-Contoh 2 (method aljabar: sistem persamaan linear) :
+#### 2. Sistem Persamaan Linear
+
 ```rust
 use matematika_rs::sistem::aljabar::*;
 
-fn main () 
-{
-    let a = 6.0; let b = 12.0;
+fn main() {
+    let a = 6.0; 
+    let b = 12.0;
     let x = Aljabar::splsv(a, b);
+
     let a1 = 4.0; let b1 = -3.0; let c1 = 18.0;
     let a2 = 3.0; let b2 = 1.0; let c2 = 7.0;
-    let hasil = Aljabar::spldv(
-        a1, b1, c1,
-        a2, b2, c2
-    );
-    println1("{}\n{:?}", x, hasil.unwrap());
+    let hasil = Aljabar::spldv(a1, b1, c1, a2, b2, c2);
+
+    println!("{}\n{:?}", x, hasil.unwrap());
 }
 ```
 
-output:
+**Output:**
 ```sh
 (-2.0)
 (3.0, -2.0)
 ```
 
-Contoh 3 (basis bilangan dan operasi aritmetika) :
+#### 3. Konversi Basis Bilangan dan Operasi Aritmetika
+
 ```rust
 use matematika_rs::operasi::aritmetika;
 use matematika_rs::sistem::basis;
 
-fn main ()
-{
-    let x: u64 = 680; let y: u64 = 87;
-    let a = basis::konversi_basis(aritmetika::tambah(x ,y), 2);
+fn main() {
+    let x: u64 = 680;
+    let y: u64 = 87;
+    let a = basis::konversi_basis(aritmetika::tambah(x, y), 2);
     let b = basis::desimal_ke_biner(aritmetika::kali(x, y));
     let c = basis::biner_ke_hexadesimal(
-            &basis::desimal_ke_biner(aritmetika::kurang(x, y)));
+        &basis::desimal_ke_biner(aritmetika::kurang(x, y))
+    );
     let d = basis::hexadesimal_ke_oktal(
-            &basis::desimal_ke_hexadesimal(aritmetika::bagi(x, y));
-    println!("{}\n{}\n{}\n{}", a, b, c, d); 
+        &basis::desimal_ke_hexadesimal(aritmetika::bagi(x, y))
+    );
+    println!("{}\n{}\n{}\n{}", a, b, c, d);
 }
 ```
 
-output:
+**Output:**
 ```sh
 1011111111
 1110011100011000
@@ -104,4 +114,9 @@ output:
 7
 ```
 
-Masih under construction, jadi harap panik kalau banyak bug karena yang make library atau crate atau apapun ini udah pasti jadi kelinci percobaanku (itung-itung kalian dapet bagian kontribusi lah). Selemat mencoba........
+## Status Pengembangan
+
+Pustaka ini masih dalam tahap pengembangan aktif, sehingga mungkin terdapat bug atau keterbatasan dalam fungsionalitasnya. Pengguna diharapkan untuk memberikan masukan dan kontribusi guna meningkatkan kualitas pustaka ini.
+
+Selamat mencoba!
+
