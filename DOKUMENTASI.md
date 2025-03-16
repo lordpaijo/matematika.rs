@@ -183,8 +183,8 @@ Modul **Aljabar** berisi metode untuk menyelesaikan sistem persamaan linear.
 #### Sistem Persamaan Linear Satu Variabel (SPLSV)
 Sintaks:
 ```rust
-struct Aljabar;
-Aljabar::splsv(a: f64, b: f64) -> Option<f64>
+struct SistemPersamaan;
+SistemPersamaan::splsv(a: f64, b: f64) -> Option<f64>
 ```
 
 Contoh penggunaan:
@@ -192,7 +192,7 @@ Contoh penggunaan:
 use matematika_rs::sistem::aljabar::*;
 
 fn main() {
-    let x = Aljabar::splsv(6.0, 12.0);  // x = -12 / 6 = -2
+    let x = SistemPersamaan::splsv(6.0, 12.0);  // x = -12 / 6 = -2
     println!("{}", x.unwrap());
 }
 ```
@@ -200,8 +200,8 @@ fn main() {
 #### Sistem Persamaan Linear Dua Variabel (SPLDV)
 Sintaks:
 ```rust
-struct Aljabar;
-Aljabar::spldv(a1: f64, b1: f64, c1: f64, a2: f64, b2: f64, c2: f64) -> Option<(f64, f64)>
+struct SistemPersamaan;
+SistemPersamaan::spldv(a1: f64, b1: f64, c1: f64, a2: f64, b2: f64, c2: f64) -> Option<(f64, f64)>
 ```
 
 Contoh penggunaan:
@@ -209,7 +209,7 @@ Contoh penggunaan:
 use matematika_rs::sistem::aljabar::*;
 
 fn main() {
-    let hasil = Aljabar::spldv(4.0, -3.0, 18.0, 3.0, 1.0, 7.0);
+    let hasil = SistemPersamaan::spldv(4.0, -3.0, 18.0, 3.0, 1.0, 7.0);
     println!("{:?}", hasil.unwrap()); // Output: (3.0, -2.0)
 }
 ```
