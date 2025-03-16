@@ -75,8 +75,6 @@ pub fn super_bagi <T: Div<Output = T> + Copy>(angka: &[T]) -> T
   
 }
 
-
-
 pub fn pangkat_optim<T>(mut base: T, mut exp: u32) -> T  
 where T: Mul<Output = T> + Copy + One,
 {
