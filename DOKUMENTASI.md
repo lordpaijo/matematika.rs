@@ -154,6 +154,51 @@ fn main() {
 }
 ```
 
+# Bangun Geometri
+
+Modul ini menyediakan berbagai struktur dan metode untuk menghitung properti bangun datar dan bangun ruang, seperti luas, keliling, dan volume.
+
+## 1. `bangun_datar`
+Modul ini berisi struktur untuk bangun datar seperti persegi dan lingkaran, masing-masing dengan metode untuk menghitung luas dan keliling.
+
+### Contoh:
+#### `Persegi`
+```rust
+struct Persegi {
+    sisi: f64,
+}
+
+impl Persegi {
+    fn luas(&self) -> f64 {
+        self.sisi.powi(2)
+    }
+    fn keliling(&self) -> f64 {
+        4.0 * self.sisi
+    }
+}
+```
+
+## 2. `bangun_ruang`
+Modul ini mencakup struktur bangun ruang seperti kubus dan bola, dengan metode untuk menghitung volume dan luas permukaan.
+
+### Contoh:
+#### `Kubus`
+```rust
+struct Kubus {
+    sisi: f64,
+}
+
+impl Kubus {
+    fn volume(&self) -> f64 {
+        self.sisi.powi(3)
+    }
+    fn luas_permukaan(&self) -> f64 {
+        6.0 * self.sisi.powi(2)
+    }
+}
+```
+
+
 ### Deret Fibonacci
 Modul ini menyediakan metode untuk menghitung deret Fibonacci dengan berbagai pendekatan.
 
