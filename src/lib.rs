@@ -19,6 +19,6 @@ mod tests {
         bilangan::genap("cek", kelipatan::kpk(z, y));
         bilangan::ganjil("rubah", kelipatan::fpb(z, y));
         Fibonacci::iteratif(10);
-        assert_eq!(Aljabar::splsv(6.0, 12.0), Some(-2.0));
+        assert_eq!(SistemPersamaan::splsv(6.0, 12.0), Some(-2.0));
     }
 }

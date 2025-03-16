@@ -1,6 +1,6 @@
-pub struct Aljabar;
+pub struct SistemPersamaan;
 
-impl Aljabar
+impl SistemPersamaan
 {
     // 
     // Sistem Persamaan Linear Satu Variable
