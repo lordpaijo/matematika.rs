@@ -218,4 +218,32 @@ pub mod bangun_ruang
             2.00 * std::f64::consts::PI * self.r
         }
     }
+
+    pub struct Tabung
+    {
+        r: f64, tinggi: f64,
+    }
+
+    impl Tabung
+    {
+        pub fn new (r: f64, tinggi: f64) -> Self
+        {
+            Self { r, tinggi }
+        }
+
+        pub fn volume (&self) -> f64
+        {
+            std::f64::consts::PI * self.r.powf(2.00) * self.tinggi
+        }
+        
+        pub fn luas_alas (&self) -> f64
+        {
+            2.00 * std::f64::consts::PI * self.r * (self.r + self.tinggi)
+        }
+
+        pub fn keliling_alas (&self) -> f64
+        {
+            2.00 * std::f64::consts::PI * self.r
+        }
+    }
 }
