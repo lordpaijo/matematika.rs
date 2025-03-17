@@ -100,7 +100,8 @@ pub mod bangun_datar
     }
 
     #[derive(Debug)]
-    pub struct Jajargenjang {
+    pub struct Jajargenjang 
+    {
         pub alas: f64,
         pub tinggi: f64,
         pub sisi_miring: f64,
@@ -121,6 +122,31 @@ pub mod bangun_datar
         pub fn keliling (&self) -> f64
         {
             2.00 * (self.alas + self.sisi_miring)
+        }
+    }
+
+    #[derive(Debug)]
+    pub struct Trapesium 
+    {
+        pub sisi: [(f64, f64); 2],
+        pub tinggi: f64,
+    }
+
+    impl Trapesium
+    {
+        pub fn new (sisi: [(f64, f64); 2], tinggi: f64) -> Self
+        {
+            Self { sisi, tinggi }
+        }
+
+        pub fn luas (&self) -> f64
+        {
+            0.5 * (self.sisi[0].0 + self.sisi[1].0) * self.tinggi
+        }
+
+        pub fn keliling (&self) -> f64
+        {
+            self.sisi[0].0 + self.sisi[0].1 + self.sisi[1].0 + self.sisi[1].1
         }
     }
 }
