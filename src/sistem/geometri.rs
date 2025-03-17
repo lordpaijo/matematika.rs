@@ -322,4 +322,54 @@ pub mod bangun_ruang
             luas_alas + luas_sisi_tegak
         }
     }
+
+    pub struct LimasPersegi 
+    {
+        panjang_alas: f64, lebar_alas: f64, tinggi: f64, tinggi_tegak: f64,
+    }
+
+    impl LimasPersegi
+    {
+        pub fn new (panjang_alas: f64, lebar_alas: f64, tinggi: f64, tinggi_tegak: f64) -> Self
+        {
+            Self { panjang_alas, lebar_alas, tinggi, tinggi_tegak }
+        }
+
+        pub fn volume (&self) -> f64
+        {
+            (1.00 / 3.00) * (self.panjang_alas * self.lebar_alas) * self.tinggi
+        }
+
+        pub fn luas_alas (&self) -> f64
+        {
+            self.panjang_alas * self.lebar_alas
+        }
+
+        pub fn luas_permukaan(&self) -> f64 
+        {
+            let luas_alas = self.panjang_alas * self.lebar_alas;
+            let luas_sisi_tegak = 
+                (0.5 * self.panjang_alas * self.tinggi_tegak)
+                + (0.5 * self.lebar_alas * self.tinggi_tegak);
+
+            luas_alas + (2.0 * luas_sisi_tegak)
+        }
+
+        pub fn keliling_alas(&self) -> f64 
+        {
+            2.0 * (self.panjang_alas + self.lebar_alas)
+        }
+
+        pub fn keliling_total(&self) -> f64 
+        {
+            let setengah_panjang = self.panjang_alas / 2.0;
+            let setengah_lebar = self.lebar_alas / 2.0;
+
+            let s_panjang = (setengah_panjang.powf(2.00) + self.tinggi.powf(2.00)).sqrt();
+            let s_lebar = (setengah_lebar.powf(2.00) + self.tinggi.powf(2.00)).sqrt();
+
+            let total_rusuk = 4.0 * (s_panjang + s_lebar) + self.keliling_alas();
+            total_rusuk
+        }
+    }
 }
