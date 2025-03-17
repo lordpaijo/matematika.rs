@@ -111,7 +111,7 @@ pub mod bangun_datar
     {
         pub fn new (alas: f64, tinggi: f64, sisi_miring: f64) -> Self
         {
-            Self { alas, sisi_miring, tinggi }
+            Self { alas, tinggi, sisi_miring }
         }
 
         pub fn luas (&self) -> f64
@@ -128,25 +128,25 @@ pub mod bangun_datar
     #[derive(Debug)]
     pub struct Trapesium 
     {
-        pub sisi: [(f64, f64); 2],
+        pub sisi: [f64; 4],
         pub tinggi: f64,
     }
 
     impl Trapesium
     {
-        pub fn new (sisi: [(f64, f64); 2], tinggi: f64) -> Self
+        pub fn new (sisi: [f64; 4], tinggi: f64) -> Self
         {
             Self { sisi, tinggi }
         }
 
-        pub fn luas (&self) -> f64
+        pub fn luas(&self) -> f64 
         {
-            0.5 * (self.sisi[0].0 + self.sisi[1].0) * self.tinggi
+            0.5 * (self.sisi[0] + self.sisi[1]) * self.tinggi
         }
 
-        pub fn keliling (&self) -> f64
+        pub fn keliling(&self) -> f64 
         {
-            self.sisi[0].0 + self.sisi[0].1 + self.sisi[1].0 + self.sisi[1].1
+            self.sisi.iter().sum::<f64>() // Menjumlahkan semua sisi
         }
     }
 }
