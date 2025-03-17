@@ -6,7 +6,7 @@ Modul ini menyediakan berbagai struktur dan metode untuk menghitung luas, kelili
 
 ## **1. `bangun_datar`**  
 
-Modul ini berisi definisi untuk bangun datar seperti **persegi, persegi panjang, segitiga, dan lingkaran**. Setiap bangun memiliki metode untuk menghitung luas dan keliling.
+Modul ini berisi definisi untuk bangun datar seperti **persegi, persegi panjang, segitiga, lingkaran, jajargenjang, dan trapesium**. Setiap bangun memiliki metode untuk menghitung luas dan keliling.
 
 ### **a. `Persegi`**
 ```rust
@@ -88,6 +88,51 @@ impl Lingkaran {
     }
 }
 ```
+
+### **e. `Jajargenjang`**
+```rust
+pub struct Jajargenjang {
+    pub alas: f64,
+    pub tinggi: f64,
+    pub sisi_miring: f64,
+}
+
+impl Jajargenjang {
+    pub fn new(alas: f64, tinggi: f64, sisi_miring: f64) -> Self {
+        Self { alas, tinggi, sisi_miring }
+    }
+    pub fn luas(&self) -> f64 {
+        self.alas * self.tinggi
+    }
+    pub fn keliling(&self) -> f64 {
+        2.00 * (self.alas + self.sisi_miring)
+    }
+}
+```
+
+### **f. `Trapesium`**
+```rust
+#[derive(Debug)]
+pub struct Trapesium {
+    pub sisi: [f64; 4],
+    pub tinggi: f64,
+}
+
+impl Trapesium {
+    pub fn new(sisi: [f64; 4], tinggi: f64) -> Self {
+        Self { sisi, tinggi }
+    }
+    pub fn luas(&self) -> f64 {
+        0.5 * (self.sisi[0] + self.sisi[1]) * self.tinggi
+    }
+    pub fn keliling(&self) -> f64 {
+        self.sisi.iter().sum::<f64>()
+    }
+}
+```
+
+---
+
 
 ---
 
@@ -251,4 +296,3 @@ impl LimasPersegi {
 
 ---
 
-Markdown sudah lengkap! 🎉 Ada yang perlu ditambah atau diperbaiki? 🚀
