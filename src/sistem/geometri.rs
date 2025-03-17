@@ -246,4 +246,39 @@ pub mod bangun_ruang
             2.00 * std::f64::consts::PI * self.r
         }
     }
+
+    pub struct LimasSegitiga
+    {
+        tinggi: f64, alas_segitiga: f64, tinggi_segitiga: f64,
+        tinggi_alas: f64, sisi_tegak: [(f64, f64); 3],
+    }
+
+    impl LimasSegitiga
+    {
+        pub fn new (tinggi: f64, alas_segitiga: f64, tinggi_segitiga: f64,
+                    tinggi_alas: f64, sisi_tegak: [(f64, f64); 3]) 
+        -> Self
+        {
+            Self { tinggi, alas_segitiga, tinggi_segitiga, tinggi_alas, sisi_tegak }
+        }
+
+        pub fn volume (&self) -> f64
+        {
+            (1.00 / 3.00) * ( (1.00 / 2.00) * self.alas_segitiga * self.tinggi_segitiga ) * self.tinggi
+        }
+
+        pub fn luas_alas (&self) -> f64
+        {
+            (1.00 / 2.00) * self.alas_segitiga * self.tinggi_segitiga
+        }
+
+        pub fn luas_permukaan (&self) -> f64
+        {
+            let luas_alas = 0.5 * self.alas_segitiga * self.tinggi_alas;
+            let luas_sisi_tegak: f64 = self.sisi_tegak.iter()
+                .map(|(a, t)| 0.5 * a * t)
+                .sum();
+            luas_alas + luas_sisi_tegak
+        }
+    }
 }
