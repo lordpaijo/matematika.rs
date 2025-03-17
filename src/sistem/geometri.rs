@@ -247,6 +247,47 @@ pub mod bangun_ruang
         }
     }
 
+    pub struct Kerucut
+    {
+        r: f64, tinggi: f64,
+    }
+
+    impl Kerucut
+    {
+        pub fn new (r: f64, tinggi: f64) -> Self
+        {
+            Self { r, tinggi }
+        }
+
+        pub fn volume (&self) -> f64
+        {
+            (1.00 / 3.00) * std::f64::consts::PI * self.r.powf(2.00) * self.tinggi
+        }
+
+        pub fn luas_alas (&self) -> f64
+        {
+            std::f64::consts::PI * self.r.powf(2.00)
+        }
+
+        pub fn garis_pelukis (&self) -> f64
+        {
+            (self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt()
+        }
+
+        pub fn luas_permukaan (&self) -> f64
+        {
+            (std::f64::consts::PI * self.r.powf(2.00)) +
+            (std::f64::consts::PI * self.r.powf(2.00) *
+             ((self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt())
+            )
+        }
+
+        pub fn luas_selimut (&self) -> f64
+        {
+            std::f64::consts::PI * self.r * ((self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt())
+        }
+    }
+
     pub struct LimasSegitiga
     {
         tinggi: f64, alas_segitiga: f64, tinggi_segitiga: f64,
