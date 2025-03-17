@@ -1,8 +1,9 @@
 pub mod bangun_datar 
 { 
+    #[derive(Debug)]
     pub struct Persegi
     {
-        sisi: f64,
+        pub sisi: f64,
     }
 
     impl Persegi
@@ -14,7 +15,7 @@ pub mod bangun_datar
 
         pub fn luas (&self) -> f64 
         {
-            self.sisi.powf(2.00)
+            self.sisi.powi(2)
         }
 
         pub fn keliling (&self) -> f64
@@ -23,9 +24,11 @@ pub mod bangun_datar
         }
     }
     
+    #[derive(Debug)]
     pub struct PersegiPanjang
     {
-        panjang: f64, lebar: f64,
+        pub panjang: f64, 
+        pub lebar: f64,
     }
 
     impl PersegiPanjang 
@@ -45,10 +48,13 @@ pub mod bangun_datar
             (self.panjang + self.lebar) * 2.00 
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct Segitiga
     {
-        alas: f64, tinggi: f64, sisi: [f64; 3]
+        pub alas: f64, 
+        pub tinggi: f64, 
+        pub sisi: [f64; 3],
     }
 
     impl Segitiga
@@ -60,7 +66,7 @@ pub mod bangun_datar
 
         pub fn luas (&self) -> f64
         {
-            (1.00/2.00) * self.alas * self.tinggi
+            0.5 * self.alas * self.tinggi
         }
 
         pub fn keliling (&self) -> f64
@@ -71,9 +77,10 @@ pub mod bangun_datar
 
     pub struct Lingkaran
     {
-        r: f64,
+        pub r: f64,
     }
 
+    #[derive(Debug)]
     impl Lingkaran
     {
         pub fn new (r: f64) -> Self
@@ -83,7 +90,7 @@ pub mod bangun_datar
 
         pub fn luas (&self) -> f64
         {
-            std::f64::consts::PI * self.r.powf(2.00)
+            std::f64::consts::PI * self.r.powi(2)
         }
 
         pub fn keliling (&self) -> f64
@@ -95,9 +102,10 @@ pub mod bangun_datar
 
 pub mod bangun_ruang 
 {
+    #[derive(Debug)] 
     pub struct Kubus 
     {
-        sisi: f64,
+        pub sisi: f64,
     }
 
     impl Kubus 
@@ -109,12 +117,12 @@ pub mod bangun_ruang
 
         pub fn volume (&self) -> f64 
         {
-            self.sisi.powf(3.00)
+            self.sisi.powi(3)
         }
 
         pub fn luas_permukaan (&self) -> f64
         {
-            6.00 * self.sisi.powf(2.00)
+            6.00 * self.sisi.powi(2)
         }
 
         pub fn diagonal_bidang (&self) -> f64
@@ -129,7 +137,7 @@ pub mod bangun_ruang
 
         pub fn luas_bidang_diagonal (&self) -> f64
         {
-            self.sisi.powf(2.00) * 2.00_f64.sqrt()
+            self.sisi.powi(2) * 2.00_f64.sqrt()
         }
 
         pub fn keliling (&self) -> f64
@@ -138,9 +146,12 @@ pub mod bangun_ruang
         }
     }
     
+    #[derive(Debug)] 
     pub struct Balok 
     {
-        panjang: f64, lebar: f64, tinggi: f64,
+        pub panjang: f64, 
+        pub lebar: f64, 
+        pub tinggi: f64,
     }
 
     impl Balok
@@ -169,10 +180,13 @@ pub mod bangun_ruang
             )
         }
 
-        pub fn luas_sis (&self)
+        pub fn luas_sisi (&self) -> [f64; 3]
         {
-            println!("Luas sisi depan: {}\nLuas sisi belakang: {}\nLuas sisi samping: {}",
-                self.panjang * self.lebar, self.panjang * self.tinggi, self.lebar * self.tinggi);
+            [
+                self.panjang * self.lebar,  // Sisi depan/belakang
+                self.panjang * self.tinggi, // Sisi samping
+                self.lebar * self.tinggi,   // Sisi atas/bawah
+            ]
         }
 
         pub fn diagonal_bidang (&self) -> f64
@@ -182,13 +196,14 @@ pub mod bangun_ruang
 
         pub fn diagonal_ruang (&self) -> f64
         {
-            (self.panjang.powf(2.00) + self.lebar.powf(2.00) + self.tinggi.powf(2.00)).sqrt()
+            (self.panjang.powi(2) + self.lebar.powi(2) + self.tinggi.powi(2)).sqrt()
         }
     }
 
+    #[derive(Debug)]
     pub struct Bola
     {
-        r: f64,
+        pub r: f64,
     }
 
     impl Bola
@@ -205,12 +220,12 @@ pub mod bangun_ruang
 
         pub fn volume (&self) -> f64
         {
-            (4.00 / 3.00) * std::f64::consts::PI * self.r.powf(3.00)
+            (4.00 / 3.00) * std::f64::consts::PI * self.r.powi(3)
         }
 
         pub fn setengah_volume (&self) -> f64
         {
-            (2.00 / 3.00) * std::f64::consts::PI * self.r.powf(3.00)
+            (2.00 / 3.00) * std::f64::consts::PI * self.r.powi(3)
         }
 
         pub fn keliling (&self) -> f64
@@ -218,10 +233,12 @@ pub mod bangun_ruang
             2.00 * std::f64::consts::PI * self.r
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct Tabung
     {
-        r: f64, tinggi: f64,
+        pub r: f64, 
+        pub tinggi: f64,
     }
 
     impl Tabung
@@ -233,7 +250,7 @@ pub mod bangun_ruang
 
         pub fn volume (&self) -> f64
         {
-            std::f64::consts::PI * self.r.powf(2.00) * self.tinggi
+            std::f64::consts::PI * self.r.powi(2) * self.tinggi
         }
         
         pub fn luas_alas (&self) -> f64
@@ -246,10 +263,12 @@ pub mod bangun_ruang
             2.00 * std::f64::consts::PI * self.r
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct Kerucut
     {
-        r: f64, tinggi: f64,
+        pub r: f64, 
+        pub tinggi: f64,
     }
 
     impl Kerucut
@@ -261,37 +280,40 @@ pub mod bangun_ruang
 
         pub fn volume (&self) -> f64
         {
-            (1.00 / 3.00) * std::f64::consts::PI * self.r.powf(2.00) * self.tinggi
+            (1.00 / 3.00) * std::f64::consts::PI * self.r.powi(2) * self.tinggi
         }
 
         pub fn luas_alas (&self) -> f64
         {
-            std::f64::consts::PI * self.r.powf(2.00)
+            std::f64::consts::PI * self.r.powi(2)
         }
 
         pub fn garis_pelukis (&self) -> f64
         {
-            (self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt()
+            (self.r.powf(2.00) + self.tinggi.powi(2)).sqrt()
         }
 
         pub fn luas_permukaan (&self) -> f64
         {
-            (std::f64::consts::PI * self.r.powf(2.00)) +
-            (std::f64::consts::PI * self.r.powf(2.00) *
-             ((self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt())
-            )
+            
+            let s = self.garis_pelukis();
+            std::f64::consts::PI * self.r * (self.r + s)
         }
 
         pub fn luas_selimut (&self) -> f64
         {
-            std::f64::consts::PI * self.r * ((self.r.powf(2.00) * self.tinggi.powf(2.00)).sqrt())
+            std::f64::consts::PI * self.r * ((self.r.powi(2) * self.tinggi.powi(2)).sqrt())
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct LimasSegitiga
     {
-        tinggi: f64, alas_segitiga: f64, tinggi_segitiga: f64,
-        tinggi_alas: f64, sisi_tegak: [(f64, f64); 3],
+        pub tinggi: f64, 
+        pub alas_segitiga: f64, 
+        pub tinggi_segitiga: f64,
+        pub tinggi_alas: f64, 
+        pub sisi_tegak: [(f64, f64); 3],
     }
 
     impl LimasSegitiga
@@ -305,12 +327,12 @@ pub mod bangun_ruang
 
         pub fn volume (&self) -> f64
         {
-            (1.00 / 3.00) * ( (1.00 / 2.00) * self.alas_segitiga * self.tinggi_segitiga ) * self.tinggi
+            (1.00 / 3.00) * (0.5 * self.alas_segitiga * self.tinggi_segitiga) * self.tinggi
         }
 
         pub fn luas_alas (&self) -> f64
         {
-            (1.00 / 2.00) * self.alas_segitiga * self.tinggi_segitiga
+            0.5 * self.alas_segitiga * self.tinggi_segitiga
         }
 
         pub fn luas_permukaan (&self) -> f64
@@ -322,10 +344,14 @@ pub mod bangun_ruang
             luas_alas + luas_sisi_tegak
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct LimasPersegi 
     {
-        panjang_alas: f64, lebar_alas: f64, tinggi: f64, tinggi_tegak: f64,
+        pub panjang_alas: f64, 
+        pub lebar_alas: f64, 
+        pub tinggi: f64, 
+        pub tinggi_tegak: f64,
     }
 
     impl LimasPersegi
@@ -365,8 +391,8 @@ pub mod bangun_ruang
             let setengah_panjang = self.panjang_alas / 2.0;
             let setengah_lebar = self.lebar_alas / 2.0;
 
-            let s_panjang = (setengah_panjang.powf(2.00) + self.tinggi.powf(2.00)).sqrt();
-            let s_lebar = (setengah_lebar.powf(2.00) + self.tinggi.powf(2.00)).sqrt();
+            let s_panjang = (setengah_panjang.powi(2) + self.tinggi.powi(2)).sqrt();
+            let s_lebar = (setengah_lebar.powi(2) + self.tinggi.powi(2)).sqrt();
 
             let total_rusuk = 4.0 * (s_panjang + s_lebar) + self.keliling_alas();
             total_rusuk
