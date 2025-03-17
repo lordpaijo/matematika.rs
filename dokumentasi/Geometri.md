@@ -131,8 +131,23 @@ impl Trapesium {
 }
 ```
 
----
+## Contoh Penggunaan
+```rust
+use matematika_rs::sistem::geometri::bangun_datar::*;
 
+fn main() {
+    let trapesium = Trapesium::new([10.0, 6.0, 5.0, 7.0], 4.0);
+
+    println!("Luas Trapesium: {:.2}", trapesium.luas());
+    println!("Keliling Trapesium: {:.2}", trapesium.keliling());
+}
+```
+
+output:
+```sh
+Luas Trapesium: 32.00  
+Keliling Trapesium: 28.00  
+```
 
 ---
 
@@ -292,6 +307,28 @@ impl LimasPersegi {
         Self { panjang_alas, lebar_alas, tinggi, tinggi_tegak }
     }
 }
+```
+
+## Contoh Penggunaan
+```rust
+use matematika_rs::sistem::geometri::bangun_ruang::*;
+
+fn main() {
+    let kubus = Kubus::new(5.0);
+
+    println!("Volume Kubus: {:.2}", kubus.volume());
+    println!("Luas Permukaan Kubus: {:.2}", kubus.luas_permukaan());
+    println!("Diagonal Bidang Kubus: {:.2}", kubus.diagonal_bidang());
+    println!("Diagonal Ruang Kubus: {:.2}", kubus.diagonal_ruang());
+}
+```
+
+output:
+```sh
+Volume Kubus: 125.00  
+Luas Permukaan Kubus: 150.00  
+Diagonal Bidang Kubus: 7.07  
+Diagonal Ruang Kubus: 8.66  
 ```
 
 ---
