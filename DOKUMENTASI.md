@@ -52,15 +52,19 @@ Modul ini berisi operasi aritmetika dasar yang terbagi menjadi dua jenis: **Norm
 #### Normal
 Metode normal hanya menerima maksimal dua parameter.
 
-| Metode | Parameter | Tipe Return | Hasil |
-|--------|----------|-------------|---------|
-| `tambah()` | `a: T, b: T` | `T` | `a + b` |
-| `kurang()` | `a: T, b: T` | `T` | `a - b` |
-| `kali()` | `a: T, b: T` | `T` | `a * b` |
-| `bagi()` | `a: T, b: T` | `T` | `a / b` |
-| `modulo()` | `a: T, b: T` | `T` | `a % b` |
-| `pangkat()` | `base: T, exp: u32` | `T` | `base^exp` |
-| `akar_kuadrat()` | `x: f64` | `f64` | `√x` |
+Berikut tabel yang sudah diperbarui dengan dua fungsi tambahan:  
+
+| Metode              | Parameter          | Tipe Return | Hasil          |
+|---------------------|-------------------|-------------|---------------|
+| `tambah()`         | `a: T, b: T`       | `T`         | `a + b`       |
+| `kurang()`         | `a: T, b: T`       | `T`         | `a - b`       |
+| `kali()`           | `a: T, b: T`       | `T`         | `a * b`       |
+| `bagi()`           | `a: T, b: T`       | `T`         | `a / b`       |
+| `modulo()`         | `a: T, b: T`       | `T`         | `a % b`       |
+| `pangkat()`        | `base: T, exp: u32` | `T`         | `base^exp`    |
+| `pangkat_optim()`  | `base: T, exp: u32` | `T`         | `base^exp` (efisien) |
+| `pangkat_desimal()` | `base: f64, exp: f64` | `f64`    | `base^exp` (desimal) |
+| `akar_kuadrat()`   | `x: f64`           | `f64`       | `√x`          |
 
 Contoh:
 ```rust
