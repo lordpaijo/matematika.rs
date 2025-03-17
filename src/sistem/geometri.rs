@@ -74,13 +74,13 @@ pub mod bangun_datar
             self.sisi[0] + self.sisi[1] + self.sisi[2]
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct Lingkaran
     {
         pub r: f64,
     }
 
-    #[derive(Debug)]
     impl Lingkaran
     {
         pub fn new (r: f64) -> Self
@@ -96,6 +96,31 @@ pub mod bangun_datar
         pub fn keliling (&self) -> f64
         {
             2.00 * std::f64::consts::PI * self.r
+        }
+    }
+
+    #[derive(Debug)]
+    pub struct Jajargenjang {
+        pub alas: f64,
+        pub tinggi: f64,
+        pub sisi_miring: f64,
+    }
+
+    impl Jajargenjang
+    {
+        pub fn new (alas: f64, tinggi: f64, sisi_miring: f64) -> Self
+        {
+            Self { alas, sisi_miring, tinggi }
+        }
+
+        pub fn luas (&self) -> f64
+        {
+            self.alas * self.tinggi
+        }
+
+        pub fn keliling (&self) -> f64
+        {
+            2.00 * (self.alas + self.sisi_miring)
         }
     }
 }
