@@ -53,7 +53,8 @@ pub mod Peluang
             count as f64 / self.angka.len() as f64
         }
     }
-
+    
+    #[derive(Debug)]
     pub struct Koin 
     {
         pub sisi: [char; 2],
@@ -82,9 +83,17 @@ pub mod Peluang
 
         pub fn muncul_setidaknya_satu(&self, target: char, jumlah: u32) -> f64 
         {
-            if self.sisi.contains(&target) {
-                1.0 - self.peluang_beruntun(if target == 'A' { 'G' } else { 'A' }, jumlah)
-            } else { 0.0 }
+            if self.sisi.contains(&target) 
+            {
+                let lawan = match target 
+                {
+                    'A' => 'G',
+                    'G' => 'A',
+                    _ => return 0.0, 
+                };
+                1.0 - self.muncul_beruntun(lawan, jumlah)
+            } 
+            else { 0.0 }
         }
     }
 }
