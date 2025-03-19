@@ -111,7 +111,7 @@ pub mod Peluang
             Self { merah, putih }
         }
 
-        pub fn peluang_satu(&self, warna: char) -> f64 
+        pub fn muncul_satu(&self, warna: char) -> f64 
         {
             let total = self.merah + self.putih;
             match warna {
@@ -121,7 +121,7 @@ pub mod Peluang
             }
         }
 
-        pub fn peluang_dua_berurutan(&self, warna_pertama: char, warna_kedua: char) -> f64 
+        pub fn muncul_dua_berurutan(&self, warna_pertama: char, warna_kedua: char) -> f64 
         {
             let total = self.merah + self.putih;
 
