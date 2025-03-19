@@ -63,27 +63,27 @@ pub mod Peluang
     {
         pub fn new() -> Self 
         {
-            Self { sisi: ['H', 'T'], /* H = Kepala, T = Ekor */ }
+            Self { sisi: ['A', 'G'], /* A = Angka, G = Gambar */ }
         }
 
-        pub fn peluang(&self, target: char) -> f64 
+        pub fn muncul(&self, target: char) -> f64 
         {
             if self.sisi.contains(&target) {
                 1.0 / self.sisi.len() as f64
             } else { 0.0 }
         }
 
-        pub fn peluang_beruntun(&self, target: char, jumlah: u32) -> f64 
+        pub fn muncul_beruntun(&self, target: char, jumlah: u32) -> f64 
         {
             if self.sisi.contains(&target) {
                 (1.0 / self.sisi.len() as f64).powi(jumlah as i32)
             } else { 0.0 }
         }
 
-        pub fn peluang_setidaknya_satu(&self, target: char, jumlah: u32) -> f64 
+        pub fn muncul_setidaknya_satu(&self, target: char, jumlah: u32) -> f64 
         {
             if self.sisi.contains(&target) {
-                1.0 - self.peluang_beruntun(if target == 'H' { 'T' } else { 'H' }, jumlah)
+                1.0 - self.peluang_beruntun(if target == 'A' { 'G' } else { 'A' }, jumlah)
             } else { 0.0 }
         }
     }
