@@ -18,7 +18,7 @@ pub mod Peluang
     #[derive(Debug)]
     pub struct Dadu 
     {
-        angka: [i64; 6]
+        pub angka: [i64; 6]
     }
 
     impl Dadu 
@@ -28,29 +28,29 @@ pub mod Peluang
             Self { angka: [1, 2, 3, 4, 5, 6], }
         }
 
-        pub fn peluang_angka(&self, target: i64) -> f64 
+        pub fn muncul_angka(&self, target: i64) -> f64 
         {
             if self.angka.contains(&target) {
                 1.0 / self.angka.len() as f64
             } else { 0.0 }
         }
 
-        pub fn peluang_genap(&self) -> f64 
+        pub fn muncul_genap(&self) -> f64 
         {
             let count = self.angka.iter().filter(|&&x| x % 2 == 0).count();
             count as f64 / self.angka.len() as f64
         }
 
-        pub fn peluang_lebih_dari(&self, batas: i64) -> f64 
+        pub fn muncul_lebih_dari(&self, batas: i64) -> f64 
         {
             let count = self.angka.iter().filter(|&&x| x > batas).count();
             count as f64 / self.angka.len() as f64
         }
 
-        pub fn peluang_kurang_dari(&self, batas: i64) -> f64 
+        pub fn muncul_kurang_dari(&self, batas: i64) -> f64 
         {
             let count = self.angka.iter().filter(|&&x| x < batas).count();
             count as f64 / self.angka.len() as f64
-        }    
+        }
     }
 }
