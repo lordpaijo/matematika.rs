@@ -96,4 +96,44 @@ pub mod Peluang
             else { 0.0 }
         }
     }
+
+    #[derive(Debug)]
+    pub struct KantongKelereng 
+    {
+        pub merah: u32,
+        pub putih: u32,
+    }
+
+    impl KantongKelereng 
+    {
+        pub fn new(merah: u32, putih: u32) -> Self 
+        {
+            Self { merah, putih }
+        }
+
+        pub fn peluang_satu(&self, warna: char) -> f64 
+        {
+            let total = self.merah + self.putih;
+            match warna {
+                'M' => self.merah as f64 / total as f64,
+                'P' => self.putih as f64 / total as f64,
+                _ => 0.0, // Jika warna tidak valid
+            }
+        }
+
+        pub fn peluang_dua_berurutan(&self, warna_pertama: char, warna_kedua: char) -> f64 
+        {
+            let total = self.merah + self.putih;
+
+            let (jumlah_pertama, jumlah_kedua) = match (warna_pertama, warna_kedua) {
+                ('M', 'M') => (self.merah, self.merah - 1),
+                ('M', 'P') => (self.merah, self.putih),
+                ('P', 'M') => (self.putih, self.merah),
+                ('P', 'P') => (self.putih, self.putih - 1),
+                _ => return 0.0, // Jika input tidak valid
+            };
+
+            (jumlah_pertama as f64 / total as f64) * (jumlah_kedua as f64 / (total - 1) as f64)
+        }
+    }
 }
