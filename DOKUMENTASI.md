@@ -122,10 +122,13 @@ Modul ini menyediakan fungsi untuk menghitung operasi kombinatorika dasar dan pe
 #### Operasi Dasar
 Fungsi dasar untuk menghitung **faktorial** dan **kombinasi**.
 
-| Fungsi                             | Deskripsi                                              |
-| ---------------------------------- | ------------------------------------------------------ |
-| `faktorial(n: u64) -> u64`         | Menghitung faktorial dari `n` (\(n!\))                 |
-| `kombinasi(n: u64, k: u64) -> u64` | Menghitung kombinasi \(C(n, k) = \frac{n!}{k!(n-k)!}\) |
+| Fungsi                                      | Deskripsi                                                                            |
+|--------------------------------------------|-------------------------------------------------------------------------------------|
+| `faktorial(n: u64) -> u64`                 | Menghitung faktorial dari `n` (\(n!\))                                           |
+| `kombinasi(n: u64, k: u64) -> u64`         | Menghitung kombinasi \(C(n, k) = \frac{n!}{k!(n-k)!}\)                           |
+| `permutasi(n: u64, r: u64) -> u64`         | Menghitung permutasi \(P(n, r) = \frac{n!}{(n-r)!}\)                             |
+| `permutasi_perulangan(n: u64, &[u64]) -> u64` | Menghitung permutasi dengan pengulangan \(P(n; n_1, n_2, ..., n_k) = \frac{n!}{n_1! \cdot n_2! \cdot ... \cdot n_k!}\) |
+| `kombinasi_perulangan(n: u64, r: u64) -> u64` | Menghitung kombinasi dengan pengulangan \(C'(n, r) = \frac{(n + r - 1)!}{r!(n - 1)!}\) |
 
 Contoh:
 
