@@ -95,3 +95,13 @@ pub fn pangkat_desimal(base: f64, exp: f64) -> f64 {
     base.powf(exp)
 }
 
+#[allow(dead_code)]
+pub fn akar_pangkat_n(x: f64, n: f64) -> f64 
+{
+    if x < 0.0 && n % 2.0 == 0.0 
+    {
+        panic!("Akar pangkat genap dari bilangan negatif tidak terdefinisi.");
+    }
+    x.powf(1.0 / n)
+}
+
