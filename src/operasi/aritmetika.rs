@@ -91,7 +91,8 @@ where T: Mul<Output = T> + Copy + One,
     hasil
 }
 
-pub fn pangkat_desimal(base: f64, exp: f64) -> f64 {
+pub fn pangkat_desimal(base: f64, exp: f64) -> f64 
+{
     base.powf(exp)
 }
 
@@ -103,5 +104,16 @@ pub fn akar_pangkat_n(x: f64, n: f64) -> f64
         panic!("Akar pangkat genap dari bilangan negatif tidak terdefinisi.");
     }
     x.powf(1.0 / n)
+}
+
+
+#[allow(dead_code)]
+pub fn logaritma(x: f64, base: f64) -> f64 
+{
+    if x <= 0.0 || base <= 0.0 || base == 1.0 
+    {
+        panic!("Bilangan atau basis logaritma tidak valid.");
+    }
+    x.ln() / base.ln()
 }
 
