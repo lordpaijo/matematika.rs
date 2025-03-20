@@ -39,32 +39,43 @@ Secara umum, modul dalam **matematika.rs** dibagi menjadi dua kategori utama: [O
 ### Aritmetika
 Modul ini berisi operasi aritmetika dasar yang terbagi menjadi dua jenis: **Normal** dan **Super**.
 
-| Normal         | Super         |
-|---------------|--------------|
-| `tambah()`    | `super_tambah()` |
-| `kurang()`    | `super_kurang()` |
-| `kali()`      | `super_kali()` |
-| `bagi()`      | `super_bagi()` |
-| `modulo()`    | - |
-| `pangkat()`   | - |
-| `akar_kuadrat()` | - |
+| Normal             | Super                  |
+| ------------------ | ---------------------- |
+| `tambah()`         | `super_tambah()`       |
+| `kurang()`         | `super_kurang()`       |
+| `kali()`           | `super_kali()`         |
+| `bagi()`           | `super_bagi()`         |
+| `modulo()`         | -                      |
+| `pangkat()`        | -                      |
+| `akar_kuadrat()`   | -                      |
+| `akar_pangkat_n()` | -                      |
+| `logaritma()`      | `super_logaritma()`    |
+| -                  | `mean()`         |
+| -                  | `median()`       |
+| -                  | `modus()`        |
+
+
 
 #### Normal
 Metode normal hanya menerima maksimal dua parameter.
 
 Berikut tabel yang sudah diperbarui dengan dua fungsi tambahan:  
 
-| Metode              | Parameter          | Tipe Return | Hasil          |
-|---------------------|-------------------|-------------|---------------|
-| `tambah()`         | `a: T, b: T`       | `T`         | `a + b`       |
-| `kurang()`         | `a: T, b: T`       | `T`         | `a - b`       |
-| `kali()`           | `a: T, b: T`       | `T`         | `a * b`       |
-| `bagi()`           | `a: T, b: T`       | `T`         | `a / b`       |
-| `modulo()`         | `a: T, b: T`       | `T`         | `a % b`       |
-| `pangkat()`        | `base: T, exp: u32` | `T`         | `base^exp`    |
-| `pangkat_optim()`  | `base: T, exp: u32` | `T`         | `base^exp` (efisien) |
-| `pangkat_desimal()` | `base: f64, exp: f64` | `f64`    | `base^exp` (desimal) |
-| `akar_kuadrat()`   | `x: f64`           | `f64`       | `√x`          |
+| Metode              | Parameter            | Tipe Return | Hasil                        |
+|---------------------|----------------------|-------------|-----------------------------|
+| `tambah()`           | `a: T, b: T`         | `T`         | `a + b`                     |
+| `kurang()`           | `a: T, b: T`         | `T`         | `a - b`                     |
+| `kali()`             | `a: T, b: T`         | `T`         | `a * b`                     |
+| `bagi()`             | `a: T, b: T`         | `T`         | `a / b`                     |
+| `modulo()`           | `a: T, b: T`         | `T`         | `a % b`                     |
+| `pangkat()`          | `base: T, exp: u32`  | `T`         | `base^exp`                  |
+| `pangkat_optim()`    | `base: T, exp: u32`  | `T`         | `base^exp` (efisien)        |
+| `pangkat_desimal()`  | `base: f64, exp: f64`| `f64`       | `base^exp` (desimal)        |
+| `akar_kuadrat()`     | `x: f64`             | `f64`       | `√x`                        |
+| `akar_pangkat_n()`   | `x: f64, n: f64`     | `f64`       | `x^(1/n)`                   |
+| `logaritma()`        | `x: f64, base: f64`  | `f64`       | `log_base(x)`               |
+
+
 
 Contoh:
 ```rust
@@ -79,12 +90,18 @@ fn main() {
 #### Super
 Metode super menerima satu parameter berupa array untuk melakukan operasi pada banyak angka sekaligus.
 
-| Metode | Parameter | Tipe Return | Hasil |
-|--------|----------|-------------|---------|
-| `super_tambah()` | `a: &[T]` | `T` | `a + b + c + ...` |
-| `super_kurang()` | `a: &[T]` | `T` | `a - b - c - ...` |
-| `super_kali()` | `a: &[T]` | `T` | `a * b * c * ...` |
-| `super_bagi()` | `a: &[T]` | `T` | `a / b / c / ...` |
+| Metode              | Parameter            | Tipe Return | Hasil                        |
+|---------------------|----------------------|-------------|-----------------------------|
+| `super_tambah()`     | `a: &[T]`            | `T`         | `a + b + c + ...`           |
+| `super_kurang()`     | `a: &[T]`            | `T`         | `a - b - c - ...`           |
+| `super_kali()`       | `a: &[T]`            | `T`         | `a * b * c * ...`           |
+| `super_bagi()`       | `a: &[T]`            | `T`         | `a / b / c / ...`           |
+| `super_logaritma()`  | `a: &[f64], base: f64` | `Vec<f64>` | `log_base(a1), log_base(a2), ...` |
+| `mean()`             | `a: &[f64]`         | `f64`       | `Σa / n` (rata-rata)        |
+| `median()`           | `a: &[f64]`         | `f64`       | Nilai tengah.                |
+| `modus()`            | `a: &[f64]`         | `Vec<f64>`  | Nilai yang paling sering muncul.    |
+
+
 
 Contoh:
 ```rust
