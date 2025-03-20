@@ -21,6 +21,12 @@ pub fn permutasi (n: u64, r: u64) -> u64
     faktorial(n) / faktorial(n - r)
 }
 
+// Kombinasi dengan Pengulangan: C'(n, r) = (n + r - 1)! / (r!(n - 1)!)
+pub fn kombinasi_perulangan(n: u64, r: u64) -> u64 
+{
+    faktorial(n + r - 1) / (faktorial(r) * faktorial(n - 1))
+}
+
 // Permutasi dengan Pengulangan: P(n; n1, n2, ..., nk) = n! / (n1! * n2! * ... * nk!)
 pub fn permutasi_perulangan (n: u64, pengulangan: &[u64]) -> u64 
 {
