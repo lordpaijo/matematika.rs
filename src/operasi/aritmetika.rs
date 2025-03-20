@@ -129,3 +129,19 @@ pub fn mean (angka: &[f64]) -> f64
     total / angka.len() as f64
 }
 
+
+#[allow(dead_code)]
+pub fn median(angka: &mut [f64]) -> f64 
+{
+    if angka.is_empty() 
+    {
+        panic!("Tidak dapat menghitung median dari data kosong.");
+    }
+    
+    angka.sort_by(|a, b| a.partial_cmp(b).unwrap());
+    let n = angka.len();
+    
+    if n % 2 == 1{ angka[n / 2] } 
+    else { (angka[n / 2 - 1] + angka[n / 2]) / 2.0 }
+}
+
