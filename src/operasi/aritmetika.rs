@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use std::f64;
 use std::ops::*;
 use std::collections::HashMap;
