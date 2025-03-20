@@ -1,3 +1,4 @@
+use std::f64;
 use std::ops::*;
 use std::collections::HashMap;
 
@@ -38,7 +39,48 @@ pub fn bagi   <T: Div<Output = T>> (a: T, b: T) -> T { a / b }
 #[allow(dead_code)]
 pub fn modulo <T: Rem<Output = T>> (a: T, b: T) -> T { a % b }
 
+#[allow(dead_code)]
+pub fn pangkat_optim<T> (mut base: T, mut exp: u32) -> T  
+where T: Mul<Output = T> + Copy + One,
+{
+    let mut hasil = T::one();
+    
+    while exp > 0 {
+        if exp % 2 == 1 { 
+            hasil = hasil * base;
+        }
+        base = base * base;
+        exp /= 2;  
+    }
 
+    hasil
+}
+
+#[allow(dead_code)]
+pub fn pangkat_desimal (base: f64, exp: f64) -> f64 
+{
+    base.powf(exp)
+}
+
+#[allow(dead_code)]
+pub fn akar_pangkat_n (x: f64, n: f64) -> f64 
+{
+    if x < 0.0 && n % 2.0 == 0.0 
+    {
+        panic!("Akar pangkat genap dari bilangan negatif tidak terdefinisi.");
+    }
+    x.powf(1.0 / n)
+}
+
+#[allow(dead_code)]
+pub fn logaritma (x: f64, base: f64) -> f64 
+{
+    if x <= 0.0 || base <= 0.0 || base == 1.0 
+    {
+        panic!("Bilangan atau basis logaritma tidak valid.");
+    }
+    x.ln() / base.ln()
+}
 
 /* Super (Lebih dari dua angka, menggunakan array atau vector) */
 #[allow(dead_code)]
@@ -76,48 +118,23 @@ pub fn super_bagi <T: Div<Output = T> + Copy> (angka: &[T]) -> T
   
 }
 
-pub fn pangkat_optim<T> (mut base: T, mut exp: u32) -> T  
-where T: Mul<Output = T> + Copy + One,
+#[allow(dead_code)]
+pub fn super_logaritma (angka: &[f64], basis: f64) -> Vec<f64> 
 {
-    let mut hasil = T::one();
-    
-    while exp > 0 {
-        if exp % 2 == 1 { 
-            hasil = hasil * base;
+    if basis <= 0.0 || basis == 1.0 
+    {
+        panic!("Basis logaritma harus lebih besar dari 0 dan tidak boleh 1.");
+    }
+
+    angka.iter().map(|&x| 
+    {
+        if x <= 0.0 
+        {
+            panic!("Logaritma tidak terdefinisi untuk angka <= 0.");
         }
-        base = base * base;
-        exp /= 2;  
-    }
-
-    hasil
+        x.log(basis)
+    }).collect()
 }
-
-pub fn pangkat_desimal (base: f64, exp: f64) -> f64 
-{
-    base.powf(exp)
-}
-
-#[allow(dead_code)]
-pub fn akar_pangkat_n (x: f64, n: f64) -> f64 
-{
-    if x < 0.0 && n % 2.0 == 0.0 
-    {
-        panic!("Akar pangkat genap dari bilangan negatif tidak terdefinisi.");
-    }
-    x.powf(1.0 / n)
-}
-
-
-#[allow(dead_code)]
-pub fn logaritma (x: f64, base: f64) -> f64 
-{
-    if x <= 0.0 || base <= 0.0 || base == 1.0 
-    {
-        panic!("Bilangan atau basis logaritma tidak valid.");
-    }
-    x.ln() / base.ln()
-}
-
 
 #[allow(dead_code)]
 pub fn mean (angka: &[f64]) -> f64 
