@@ -117,3 +117,15 @@ pub fn logaritma(x: f64, base: f64) -> f64
     x.ln() / base.ln()
 }
 
+
+#[allow(dead_code)]
+pub fn rata_rata(angka: &[f64]) -> f64 
+{
+    if angka.is_empty() 
+    {
+        panic!("Tidak bisa menghitung rata-rata dari array kosong.");
+    }
+    let total: f64 = angka.iter().sum();
+    total / angka.len() as f64
+}
+
