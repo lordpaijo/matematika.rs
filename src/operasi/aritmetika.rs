@@ -1,4 +1,5 @@
 use std::ops::*;
+use std::collections::HashMap;
 
 /* Normal (hanya dua angka) */
 
@@ -131,7 +132,7 @@ pub fn mean (angka: &[f64]) -> f64
 
 
 #[allow(dead_code)]
-pub fn median(angka: &mut [f64]) -> f64 
+pub fn median (angka: &mut [f64]) -> f64 
 {
     if angka.is_empty() 
     {
@@ -145,3 +146,24 @@ pub fn median(angka: &mut [f64]) -> f64
     else { (angka[n / 2 - 1] + angka[n / 2]) / 2.0 }
 }
 
+#[allow(dead_code)]
+pub fn modus (angka: &[i32]) -> Vec<i32> 
+{
+    if angka.is_empty() 
+    {
+        panic!("Tidak dapat menghitung modus dari data kosong.");
+    }
+
+    let mut frekuensi = HashMap::new();
+    for &num in angka 
+    {
+        *frekuensi.entry(num).or_insert(0) += 1;
+    }
+
+    let max_freq = frekuensi.values().copied().max().unwrap();
+    frekuensi
+        .into_iter()
+        .filter(|&(_, count)| count == max_freq)
+        .map(|(num, _)| num)
+        .collect()
+}
