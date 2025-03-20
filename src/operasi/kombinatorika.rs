@@ -1,16 +1,24 @@
 #![allow(non_snake_case)]
 
-#[allow(dead_code)]
 pub fn faktorial(n: u64) -> u64 
 {
     (1..=n).product()
 }
 
-#[allow(dead_code)]
 pub fn kombinasi(n: u64, k: u64) -> u64 
 {
     if k > n { return 0; }
     faktorial(n) / (faktorial(k) * faktorial(n - k))
+}
+
+// Permutasi: P(n, r) = n! / (n - r)!
+pub fn permutasi(n: u64, r: u64) -> u64 
+{
+    if r > n 
+    {
+        panic!("r tidak boleh lebih besar dari n");
+    }
+    faktorial(n) / faktorial(n - r)
 }
 
 pub mod Peluang
