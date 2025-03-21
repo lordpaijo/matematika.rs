@@ -235,7 +235,7 @@ fn main() {
 }
 ```
 
-### Faktor Persekutuan Terbesar (FPB) & Kelipatan Persekutuan Terkecil (KPK)
+### Kelipatan
 Modul ini menyediakan fungsi untuk mencari FPB dan KPK dari dua bilangan.
 
 | Fungsi | Parameter | Tipe Return | Deskripsi |
@@ -258,11 +258,11 @@ fn main() {
 
 Modul ini menyediakan berbagai struktur dan metode untuk menghitung properti bangun datar dan bangun ruang, seperti luas, keliling, dan volume.
 
-## 1. `bangun_datar`
+### 1. `bangun_datar`
 Modul ini berisi struktur untuk bangun datar seperti persegi dan lingkaran, masing-masing dengan metode untuk menghitung luas dan keliling.
 
 ### Contoh:
-#### `Persegi`
+**`Persegi`**
 ```rust
 struct Persegi {
     sisi: f64,
@@ -278,11 +278,11 @@ impl Persegi {
 }
 ```
 
-## 2. `bangun_ruang`
+### 2. `bangun_ruang`
 Modul ini mencakup struktur bangun ruang seperti kubus dan bola, dengan metode untuk menghitung volume dan luas permukaan.
 
-### Contoh:
-#### `Kubus`
+#### Contoh:
+**`Kubus`**
 ```rust
 struct Kubus {
     sisi: f64,
@@ -298,7 +298,7 @@ impl Kubus {
 }
 ```
 
-## 3. `Trigonometri`
+### 3. `Trigonometri`
 Struktur ini mencakup metode-metode hitung dari materi trigonometri.
 
 | Metode              | Parameter            | Tipe Return | Hasil                        |
