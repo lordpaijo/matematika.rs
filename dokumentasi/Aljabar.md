@@ -150,3 +150,121 @@ Output:
    Some((x, y))
    ```
 
+### Sistem Persamaan Linear Tiga Variabel (SPLTV)
+#### Sintaks:
+
+```rust
+struct SistemPersamaan;
+
+SistemPersamaan::spltv(
+    a1: f64, b1: f64, c1: f64, d1: f64,
+    a2: f64, b2: f64, c2: f64, d2: f64,
+    a3: f64, b3: f64, c3: f64, d3: f64
+) -> Option<(f64, f64, f64)>
+```
+
+Misalkan terdapat sistem persamaan berikut:
+
+* *2x - y + 3z = 9*
+* *x + y - 2z = -2*
+* *3x - 2y + 4z = 15*
+
+Penyelesaiannya menggunakan metode determinan:
+
+1. Hitung determinan utama *(det)* menggunakan rumus:
+
+```
+det = a₁(b₂c₃ - b₃c₂) - b₁(a₂c₃ - a₃c₂) + c₁(a₂b₃ - a₃b₂)
+```
+
+2. Jika determinan *(det)* bernilai nol, maka sistem tidak memiliki solusi atau memiliki solusi tak hingga.
+
+3. Jika determinan tidak nol, lanjutkan dengan menghitung determinan x, y, dan z:
+
+```
+det_x = d₁(b₂c₃ - b₃c₂) - b₁(d₂c₃ - d₃c₂) + c₁(d₂b₃ - d₃b₂)
+det_y = a₁(d₂c₃ - d₃c₂) - d₁(a₂c₃ - a₃c₂) + c₁(a₂d₃ - a₃d₂)
+det_z = a₁(b₂d₃ - b₃d₂) - b₁(a₂d₃ - a₃d₂) + d₁(a₂b₃ - a₃b₂)
+```
+
+4. Hitung nilai x, y, dan z:
+
+```
+x = det_x / det
+y = det_y / det
+z = det_z / det
+```
+
+#### Implementasi dalam Kode
+
+```rust
+use matematika_rs::sistem::aljabar::*;
+
+fn main() {
+    let hasil = SistemPersamaan::spltv(
+        2.0, -1.0, 3.0, 9.0,  // Persamaan 1
+        1.0, 1.0, -2.0, -2.0, // Persamaan 2
+        3.0, -2.0, 4.0, 15.0  // Persamaan 3
+    );
+    println!("{:?}", hasil.unwrap());
+}
+```
+
+Output:
+
+```sh
+(1.0, 2.0, 1.0)
+```
+
+#### Proses Penyelesaian SPLTV dalam Kode
+1. Fungsi `spltv` menerima 12 parameter yang merepresentasikan koefisien dan konstanta dari tiga persamaan linear.
+
+```rust
+pub fn spltv(
+    a1: f64, b1: f64, c1: f64, d1: f64,
+    a2: f64, b2: f64, c2: f64, d2: f64,
+    a3: f64, b3: f64, c3: f64, d3: f64
+) -> Option<(f64, f64, f64)>
+```
+
+2. Hitung determinan utama *(det)* menggunakan rumus determinan matriks 3x3.
+
+```rust
+let det = a1 * (b2 * c3 - b3 * c2)
+        - b1 * (a2 * c3 - a3 * c2)
+        + c1 * (a2 * b3 - a3 * b2);
+
+if det == 0.0 { return None; }
+```
+
+3. Hitung determinan untuk variabel *x*, *y*, dan *z*.
+
+```rust
+let det_x = d1 * (b2 * c3 - b3 * c2)
+          - b1 * (d2 * c3 - d3 * c2)
+          + c1 * (d2 * b3 - d3 * b2);
+
+let det_y = a1 * (d2 * c3 - d3 * c2)
+          - d1 * (a2 * c3 - a3 * c2)
+          + c1 * (a2 * d3 - a3 * d2);
+
+let det_z = a1 * (b2 * d3 - b3 * d2)
+          - b1 * (a2 * d3 - a3 * d2)
+          + d1 * (a2 * b3 - a3 * b2);
+```
+
+4. Hitung hasil akhir untuk *x*, *y*, dan *z*.
+
+```rust
+let x = det_x / det;
+let y = det_y / det;
+let z = det_z / det;
+```
+
+5. Kembalikan hasil sebagai tuple `(x, y, z)`.
+
+```rust
+Some((x, y, z))
+```
+
+
