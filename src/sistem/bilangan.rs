@@ -64,7 +64,7 @@ pub fn ganjil (mode: &str, mut a: i64) -> i64
 }
 
 
-pub fn absolut(x: f64) -> f64 
+pub fn absolut (x: f64) -> f64 
 {
     x.abs()
 }
@@ -123,4 +123,9 @@ pub fn super_ganjil (mode: &str, a: &mut [i64])
         }
         _ => panic!("{} bukanlah sebuah mode!", mode),
     }
+}
+
+pub fn super_absolut (values: &[f64]) -> Vec<f64> 
+{
+    values.iter().map(|&x| x.abs()).collect()
 }
