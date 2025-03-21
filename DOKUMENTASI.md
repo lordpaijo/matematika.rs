@@ -50,11 +50,6 @@ Modul ini berisi operasi aritmetika dasar yang terbagi menjadi dua jenis: **Norm
 | `akar_kuadrat()`   | -                      |
 | `akar_pangkat_n()` | -                      |
 | `logaritma()`      | `super_logaritma()`    |
-| -                  | `mean()`         |
-| -                  | `median()`       |
-| -                  | `modus()`        |
-
-
 
 #### Normal
 Metode normal hanya menerima maksimal dua parameter.
@@ -97,11 +92,6 @@ Metode super menerima satu parameter berupa array untuk melakukan operasi pada b
 | `super_kali()`       | `a: &[T]`            | `T`         | `a * b * c * ...`           |
 | `super_bagi()`       | `a: &[T]`            | `T`         | `a / b / c / ...`           |
 | `super_logaritma()`  | `a: &[f64], base: f64` | `Vec<f64>` | `log_base(a1), log_base(a2), ...` |
-| `mean()`             | `a: &[f64]`         | `f64`       | `Σa / n` (rata-rata)        |
-| `median()`           | `a: &[f64]`         | `f64`       | Nilai tengah.                |
-| `modus()`            | `a: &[f64]`         | `Vec<f64>`  | Nilai yang paling sering muncul.    |
-
-
 
 Contoh:
 ```rust
@@ -176,6 +166,28 @@ fn main() {
 
     let kantong = KantongKelereng::new(5, 7);
     println!("Peluang mengambil kelereng merah: {}", kantong.muncul_satu('M'));
+}
+```
+
+### Statistika
+Modul ini berisi metode-metode hitung dari materi statistika.
+
+| Metod | Parameter | Tipe Return | Hasil |
+|-------|-----------|-------------|-------|
+| `mean()`             | `a: &[f64]`         | `f64`       | `Σa / n` (rata-rata)        |
+| `median()`           | `a: &[f64]`         | `f64`       | Nilai tengah.                |
+| `modus()`            | `a: &[f64]`         | `Vec<f64>`  | Nilai yang paling sering muncul.    |
+
+Contoh:
+```rust
+use matematika_rs::operasi::statistika::*;
+
+fn main ()
+{
+    let x = [4.00, 5.00, 5.00, 6.00 7.00, 3.00, 3.00, 5.00, 4.00 6.00];
+    let a = mean(&x);
+    let b = median(&x);
+    let c = modus(&x);
 }
 ```
 
