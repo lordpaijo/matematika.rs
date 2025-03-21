@@ -194,7 +194,7 @@ fn main ()
 ---
 
 ## Sistem
-### Pembulatan dan Bilangan Ganjil-Genap
+### Bilangan
 Modul ini menyediakan fungsi untuk melakukan pembulatan serta pengecekan dan perubahan bilangan ganjil-genap.
 
 | Fungsi | Parameter | Tipe Return | Deskripsi |
@@ -204,10 +204,12 @@ Modul ini menyediakan fungsi untuk melakukan pembulatan serta pengecekan dan per
 | `genap("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan genap terdekat |
 | `ganjil("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan ganjil |
 | `ganjil("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan ganjil terdekat |
+| `absolut(a)` | `a: f64` | `f64` | Mengubah nilai `a` menjadi nilai mutlak |
 | `super_genap("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan genap |
 | `super_genap("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan genap |
 | `super_ganjil("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan ganjil |
 | `super_ganjil("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan ganjil |
+| `super_absolut(&[f64])` | `a: &[f64]` | `Vec<f64>` | Mengubah nilai dari isi `a` menjadi nilai mutlak |
 
 Contoh penggunaan:
 
