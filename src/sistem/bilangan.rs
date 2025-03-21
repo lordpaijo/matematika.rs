@@ -63,6 +63,12 @@ pub fn ganjil (mode: &str, mut a: i64) -> i64
     a
 }
 
+
+pub fn absolut(x: f64) -> f64 
+{
+    x.abs()
+}
+
 pub fn super_genap (mode: &str, a: &mut [i64]) 
 {
     match mode 
