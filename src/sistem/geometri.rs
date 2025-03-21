@@ -450,3 +450,23 @@ pub mod bangun_ruang
         }
     }
 }
+
+pub struct Trigonometri;
+
+impl Trigonometri
+{
+    pub fn sin_deg(deg: f64) -> f64 
+    {
+        (deg.to_radians()).sin()
+    }
+
+    pub fn cos_deg(deg: f64) -> f64 
+    {
+        (deg.to_radians()).cos()
+    }
+
+    pub fn tan_deg(deg: f64) -> f64 
+    {
+        (deg.to_radians()).tan()
+    }
+}
