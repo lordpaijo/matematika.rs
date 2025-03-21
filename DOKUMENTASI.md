@@ -252,7 +252,7 @@ fn main() {
 }
 ```
 
-# Bangun Geometri
+### Geometri
 
 Modul ini menyediakan berbagai struktur dan metode untuk menghitung properti bangun datar dan bangun ruang, seperti luas, keliling, dan volume.
 
@@ -296,6 +296,30 @@ impl Kubus {
 }
 ```
 
+## 3. `Trigonometri`
+Struktur ini mencakup metode-metode hitung dari materi trigonometri.
+
+| Metode              | Parameter            | Tipe Return | Hasil                        |
+|---------------------|----------------------|-------------|-----------------------------|
+| `sin_deg()`          | `deg: T`             | `T`         | Nilai sinus dari sudut dalam derajat |
+| `cos_deg()`          | `deg: T`             | `T`         | Nilai cosinus dari sudut dalam derajat |
+| `tan_deg()`          | `deg: T`             | `T`         | Nilai tangen dari sudut dalam derajat |
+
+---
+
+Contoh:
+```rust
+use matematika::trigonometri::{sin_deg, cos_deg, tan_deg};
+
+fn main() {
+    let angle_f64: f64 = 45.0;
+    let angle_f32: f32 = 30.0;
+
+    println!("sin 45° (f64): {}", sin_deg(angle_f64));
+    println!("cos 30° (f32): {}", cos_deg(angle_f32));
+    println!("tan 45° (f64): {}", tan_deg(angle_f64));
+}
+```
 
 ### Deret Fibonacci
 Modul ini menyediakan metode untuk menghitung deret Fibonacci dengan berbagai pendekatan.
