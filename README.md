@@ -1,3 +1,12 @@
+
+> [!WARNING]
+> 
+> REPO INI SERING MENDAPATKAN UPDATE.
+> 
+> KESTABILAN DI DALAM *BRANCH* [`master`](https://github.com/lordpaijo/matematika.rs/tree/master)
+> 
+> TIDAK DAPAT DIPASTIKAN!
+
 # matematika.rs
 
 `matematika.rs` adalah sebuah pustaka (crate) Rust yang menyediakan berbagai fungsi matematika dasar dengan antarmuka yang mudah digunakan.
