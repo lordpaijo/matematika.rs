@@ -1,6 +1,6 @@
 [package]
 name = "matematika-rs"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["LordPaijo (Iyan) <iyanmaumakan.56@gmail.com>"]
 edition = "2021"
 description = "Library matematika sederhana untuk orang malas seperti saya."
