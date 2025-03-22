@@ -1,11 +1,9 @@
 
 > [!WARNING]
 > 
-> REPO INI SERING MENDAPATKAN UPDATE.
+> REPOSITORY INI SERING DAN SELALU MENDAPATKAN UPDATE.
 > 
-> KESTABILAN DI DALAM *BRANCH* [`master`](https://github.com/lordpaijo/matematika.rs/tree/master)
-> 
-> TIDAK DAPAT DIPASTIKAN!
+> KESTABILAN DI DALAM *BRANCH* [`master`](https://github.com/lordpaijo/matematika.rs/tree/master) TIDAK DAPAT DIPASTIKAN!
 
 # matematika.rs
 
