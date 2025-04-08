@@ -54,7 +54,7 @@ Modul ini berisi operasi aritmetika dasar yang terbagi menjadi dua jenis: **Norm
 #### Normal
 Metode normal hanya menerima maksimal dua parameter.
 
-Berikut tabel yang sudah diperbarui dengan dua fungsi tambahan:  
+Berikut tabel yang sudah diperbarui dengan dua fungsi tambahan:
 
 | Metode              | Parameter            | Tipe Return | Hasil                        |
 |---------------------|----------------------|-------------|-----------------------------|
@@ -101,6 +101,66 @@ fn main() {
     let angka = [6.0, 4.0, 5.0, 7.0];
     let hasil = super_tambah(&angka); // 6 + 4 + 5 + 7 = 22
     println!("{}", hasil);
+}
+```
+
+### Bilangan
+Modul ini menyediakan fungsi untuk melakukan pembulatan serta pengecekan dan perubahan bilangan ganjil-genap.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `bulat()` | `a: f64` | `f64` | Membulatkan angka ke bilangan bulat terdekat |
+| `genap("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan genap |
+| `genap("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan genap terdekat |
+| `ganjil("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan ganjil |
+| `ganjil("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan ganjil terdekat |
+| `absolut(a)` | `a: f64` | `f64` | Mengubah nilai `a` menjadi nilai mutlak |
+| `super_genap("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan genap |
+| `super_genap("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan genap |
+| `super_ganjil("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan ganjil |
+| `super_ganjil("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan ganjil |
+| `super_absolut(&[f64])` | `a: &[f64]` | `Vec<f64>` | Mengubah nilai dari isi `a` menjadi nilai mutlak |
+
+Contoh penggunaan:
+
+```rust
+use matematika_rs::operasi::aritmetika;
+
+fn main() {
+    let angka = 4.7;
+    println!("{}", aritmetika::bulat(angka)); // Output: 5.0
+
+    let mut nilai = 7;
+    println!("{}", aritmetika::genap("rubah", nilai)); // Output: 8
+}
+```
+
+```rust
+use matematika_rs::operasi::aritmetika;
+
+fn main() {
+    let mut angka = [3, 6, 9, 12];
+    aritmetika::super_genap("rubah", &mut angka);
+    println!("{:?}", angka); // Output: [4, 6, 10, 12]
+}
+```
+
+### Kelipatan
+Modul ini menyediakan fungsi untuk mencari FPB dan KPK dari dua bilangan.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `fpb(a, b)` | `a: T, b: T` | `T` | Menghitung faktor persekutuan terbesar dari `a` dan `b` |
+| `kpk(a, b)` | `a: T, b: T` | `T` | Menghitung kelipatan persekutuan terkecil dari `a` dan `b` |
+
+```rust
+use matematika_rs::operasi::aritmetika;
+
+fn main() {
+    let a = 36;
+    let b = 48;
+    println!("FPB: {}", aritmetika::fpb(a, b)); // Output: 12
+    println!("KPK: {}", aritmetika::kpk(a, b)); // Output: 144
 }
 ```
 
@@ -194,65 +254,6 @@ fn main ()
 ---
 
 ## Sistem
-### Bilangan
-Modul ini menyediakan fungsi untuk melakukan pembulatan serta pengecekan dan perubahan bilangan ganjil-genap.
-
-| Fungsi | Parameter | Tipe Return | Deskripsi |
-|--------|----------|-------------|-----------|
-| `bulat()` | `a: f64` | `f64` | Membulatkan angka ke bilangan bulat terdekat |
-| `genap("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan genap |
-| `genap("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan genap terdekat |
-| `ganjil("cek", a)` | `a: i64` | `i64` | Mengecek apakah `a` adalah bilangan ganjil |
-| `ganjil("rubah", a)` | `a: i64` | `i64` | Mengubah `a` menjadi bilangan ganjil terdekat |
-| `absolut(a)` | `a: f64` | `f64` | Mengubah nilai `a` menjadi nilai mutlak |
-| `super_genap("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan genap |
-| `super_genap("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan genap |
-| `super_ganjil("cek", &[i64])` | `a: &mut [i64]` | - | Mengecek apakah elemen dalam array adalah bilangan ganjil |
-| `super_ganjil("rubah", &[i64])` | `a: &mut [i64]` | - | Mengubah elemen dalam array menjadi bilangan ganjil |
-| `super_absolut(&[f64])` | `a: &[f64]` | `Vec<f64>` | Mengubah nilai dari isi `a` menjadi nilai mutlak |
-
-Contoh penggunaan:
-
-```rust
-use matematika_rs::sistem::*;
-
-fn main() {
-    let angka = 4.7;
-    println!("{}", bulat(angka)); // Output: 5.0
-
-    let mut nilai = 7;
-    println!("{}", genap("rubah", nilai)); // Output: 8
-}
-```
-
-```rust
-use matematika_rs::sistem::*;
-
-fn main() {
-    let mut angka = [3, 6, 9, 12];
-    super_genap("rubah", &mut angka);
-    println!("{:?}", angka); // Output: [4, 6, 10, 12]
-}
-```
-
-### Kelipatan
-Modul ini menyediakan fungsi untuk mencari FPB dan KPK dari dua bilangan.
-
-| Fungsi | Parameter | Tipe Return | Deskripsi |
-|--------|----------|-------------|-----------|
-| `fpb(a, b)` | `a: T, b: T` | `T` | Menghitung faktor persekutuan terbesar dari `a` dan `b` |
-| `kpk(a, b)` | `a: T, b: T` | `T` | Menghitung kelipatan persekutuan terkecil dari `a` dan `b` |
-
-```rust
-use matematika_rs::sistem::*;
-
-fn main() {
-    let a = 36;
-    let b = 48;
-    println!("FPB: {}", fpb(a, b)); // Output: 12
-    println!("KPK: {}", kpk(a, b)); // Output: 144
-}
-```
 
 ### Geometri
 
@@ -417,4 +418,3 @@ Untuk detail lebih lanjut, silakan merujuk pada [dokumentasi lengkap](https://gi
 
 ## Penutup
 blukutupblukutupblukutup
-
