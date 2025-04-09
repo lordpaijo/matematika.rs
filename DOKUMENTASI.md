@@ -164,6 +164,29 @@ fn main() {
 }
 ```
 
+### Deret Fibonacci
+Struktur ini menyediakan metode untuk menghitung deret Fibonacci dengan berbagai pendekatan.
+
+| Fungsi | Parameter | Tipe Return | Deskripsi |
+|--------|----------|-------------|-----------|
+| `rekursif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan rekursi |
+| `iteratif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan iterasi |
+| `binet(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` menggunakan rumus Binet |
+| `adalah_genap(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah genap |
+| `adalah_prima(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah bilangan prima |
+
+Contoh penggunaan:
+
+```rust
+use matematika_rs::operasi::aritmetika;
+
+fn main() {
+    println!("Fibonacci ke-10: {}", aritmetika::Fibonacci::iteratif(10));
+    println!("Apakah Fibonacci ke-10 genap? {}", aritmetika::Fibonacci::adalah_genap(10));
+    println!("Apakah Fibonacci ke-10 prima? {}", aritmetika::Fibonacci::adalah_prima(10));
+}
+```
+
 ---
 
 ### Kombinatorika
@@ -321,29 +344,6 @@ fn main() {
     println!("sin 45° (f64): {}", sin_deg(angle_f64));
     println!("cos 30° (f32): {}", cos_deg(angle_f32));
     println!("tan 45° (f64): {}", tan_deg(angle_f64));
-}
-```
-
-### Deret Fibonacci
-Modul ini menyediakan metode untuk menghitung deret Fibonacci dengan berbagai pendekatan.
-
-| Fungsi | Parameter | Tipe Return | Deskripsi |
-|--------|----------|-------------|-----------|
-| `rekursif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan rekursi |
-| `iteratif(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` dengan iterasi |
-| `binet(n)` | `n: u64` | `u64` | Menghitung bilangan Fibonacci ke-`n` menggunakan rumus Binet |
-| `adalah_genap(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah genap |
-| `adalah_prima(n)` | `n: u64` | `bool` | Mengecek apakah bilangan Fibonacci ke-`n` adalah bilangan prima |
-
-Contoh penggunaan:
-
-```rust
-use matematika_rs::sistem::fibonacci::*;
-
-fn main() {
-    println!("Fibonacci ke-10: {}", Fibonacci::iteratif(10));
-    println!("Apakah Fibonacci ke-10 genap? {}", Fibonacci::adalah_genap(10));
-    println!("Apakah Fibonacci ke-10 prima? {}", Fibonacci::adalah_prima(10));
 }
 ```
 
