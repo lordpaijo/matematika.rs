@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
-pub fn mean (angka: &[f64]) -> f64 
+pub fn mean (angka: &[f64]) -> f64
 {
-    if angka.is_empty() 
+    if angka.is_empty()
     {
         panic!("Tidak bisa menghitung rata-rata dari array kosong.");
     }
@@ -10,29 +10,29 @@ pub fn mean (angka: &[f64]) -> f64
     total / angka.len() as f64
 }
 
-pub fn median (angka: &mut [f64]) -> f64 
+pub fn median (angka: &mut [f64]) -> f64
 {
-    if angka.is_empty() 
+    if angka.is_empty()
     {
         panic!("Tidak dapat menghitung median dari data kosong.");
     }
-    
+
     angka.sort_by(|a, b| a.partial_cmp(b).unwrap());
     let n = angka.len();
-    
-    if n % 2 == 1{ angka[n / 2] } 
+
+    if n % 2 == 1{ angka[n / 2] }
     else { (angka[n / 2 - 1] + angka[n / 2]) / 2.0 }
 }
 
-pub fn modus (angka: &[i32]) -> Vec<i32> 
+pub fn modus (angka: &[i64]) -> Vec<i64>
 {
-    if angka.is_empty() 
+    if angka.is_empty()
     {
         panic!("Tidak dapat menghitung modus dari data kosong.");
     }
 
     let mut frekuensi = HashMap::new();
-    for &num in angka 
+    for &num in angka
     {
         *frekuensi.entry(num).or_insert(0) += 1;
     }
@@ -44,4 +44,3 @@ pub fn modus (angka: &[i32]) -> Vec<i32>
         .map(|(num, _)| num)
         .collect()
 }
-
