@@ -215,16 +215,16 @@ impl SistemPersamaan {
     }
 
     pub fn splsv_proses(a: f64, b: f64) -> (Option<f64>, String) {
-        let mut steps = format!("Persamaan: {:.2}x + {:.2} = 0\n", a, b);
+        let mut steps = format!("Persamaan: {:.2}x + {:.2} = 0\n\n", a, b);
 
         if a == 0.0 {
-            steps.push_str("Koefisien x (a) = 0 → Tidak ada solusi.\n");
+            steps.push_str("Koefisien x (a) = 0 → Tidak ada solusi.\n\n");
             return (None, steps);
         }
 
         let x = -b / a;
         steps.push_str(&format!(
-            "Pindahkan b ke kanan:\n  {:.2}x = {:.2}\nBagi dengan a:\n  x = {:.2}\n",
+            "Pindahkan b ke kanan:\n  {:.2}x = {:.2}\nBagi dengan a:\n  x = {:.2}\n\n",
             a, -b, x
         ));
 
@@ -237,7 +237,7 @@ impl SistemPersamaan {
 
         if let Some(x) = result_opt {
             let x_frac = Self::float_to_fraction(x);
-            steps.push_str(&format!("Hasil dalam bentuk pecahan: x = {}\n", x_frac));
+            steps.push_str(&format!("Hasil dalam bentuk pecahan: x = {}\n\n", x_frac));
             (Some(x), steps)
         } else {
             (None, steps)
