@@ -232,13 +232,13 @@ impl SistemPersamaan {
     }
 
     // Versi proses dengan hasil pecahan
-    pub fn splsv_proses_frac(a: f64, b: f64) -> (Option<String>, String) {
+    pub fn splsv_proses_frac(a: f64, b: f64) -> (Option<f64>, String) {
         let (result_opt, mut steps) = Self::splsv_proses(a, b);
 
         if let Some(x) = result_opt {
             let x_frac = Self::float_to_fraction(x);
             steps.push_str(&format!("Hasil dalam bentuk pecahan: x = {}\n", x_frac));
-            (Some(x_frac), steps)
+            (Some(x), steps)
         } else {
             (None, steps)
         }
@@ -307,7 +307,7 @@ impl SistemPersamaan {
         a2: f64,
         b2: f64,
         c2: f64,
-    ) -> (Option<(String, String)>, String) {
+    ) -> (Option<(f64, f64)>, String) {
         let (result_opt, mut steps) = Self::spldv_proses(a1, b1, c1, a2, b2, c2);
 
         if let Some((x, y)) = result_opt {
@@ -319,7 +319,7 @@ impl SistemPersamaan {
                 x_frac, y_frac
             ));
 
-            (Some((x_frac, y_frac)), steps)
+            (Some((x, y)), steps)
         } else {
             (None, steps)
         }
